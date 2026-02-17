@@ -1,25 +1,19 @@
 ---
 permalink: /
-title: "About Me"
+title: "关于我"
 author_profile: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-I am **Kai Zheng**, Lecturer and Master's supervisor at the College of Computer Science, China University of Petroleum (East China).
-My research focuses on the intersection of computer science and biomedicine, including **bioinformatics**, **network geometry**, **biomedical data mining**, and **artificial intelligence**.
+## 关于我
+一位社会心理学研究者，关注我们如何感知他人，以及这种感知如何影响态度、行为与社会互动。
 
-## Academic Background
-- B.Eng. in Computer Science and Technology, Central South University (2017)
-- M.Eng. in Computer Application Technology, China University of Mining and Technology (2020)
-- Ph.D. in Computer Science and Technology, Central South University (2024)
+我是一名博士后研究人员，同时担任社会心理学兼职教师，任职于米兰比可卡大学，并于 2019 年在该校获得博士学位，博士课题聚焦“去人性化”。在攻读博士期间，我曾赴雅典潘提翁大学开展访问研究，研究方向为政治宣传中的去人性化现象。
 
-## Research Overview
-- Principal Investigator, National Natural Science Foundation of China (Youth Program)
-- Principal Investigator, Shandong Provincial Natural Science Foundation (Youth Program)
-- Participant in multiple national key R&D and NSFC General Program projects
-- 40+ papers in venues including *Nature Communications*, *NeurIPS*, *PLOS Computational Biology*, *Briefings in Bioinformatics*, and *IEEE/ACM TCBB*
-- Google Scholar citations: 1500+ | H-index: 19
+自 2019 年以来，我先后在瓦莱达奥斯塔大学与米兰比可卡大学从事博士后研究工作，并在特伦托大学讲授社会心理学与群体心理学课程。近年，我在佩加索大学担任固定期限研究员与助理教授，积累了数字化教学策略方面的实践经验。
 
-Please see the `Publications`, `Projects`, and `CV` sections for more details.
+除去人性化研究外，我的研究兴趣还涵盖性别刻板印象、社会经济不平等与食品可持续性等议题。研究方法上，我主要采用实验与定量方法，同时结合定性方法，以更深入理解个体心理过程与社会动态。
+
+更多研究内容可在“成果发表”和“研究项目”页面查看，这些页面展示了我关注的核心问题与所采用的方法。若你希望交流、合作，或分享想法，欢迎通过“联系”页面给我留言。
