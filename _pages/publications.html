@@ -81,6 +81,21 @@ author_profile: true
   cursor: not-allowed;
   pointer-events: none;
 }
+.pub-figure {
+  margin-top: 1.8rem;
+  padding-top: 0.4rem;
+}
+.pub-figure-note {
+  margin: 0.4rem 0 0.8rem;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+.pub-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
 </style>
 
 {% assign selected_pubs = site.publications | where: "selected", true | sort: "date" | reverse %}
@@ -135,7 +150,8 @@ author_profile: true
   </div>
 {% endfor %}
 
-## 图4 代表性论文统计
-**代表性成果覆盖 NeurIPS、PLOS Computational Biology、Briefings in Bioinformatics、IEEE/ACM TCBB 等期刊与会议。**
-
-![图4 代表性论文统计]({{ base_path }}/files/figure4-publications-summary.png)
+<section class="pub-figure">
+  <h2>图4 代表性论文统计</h2>
+  <p class="pub-figure-note"><strong>代表性成果覆盖 NeurIPS、PLOS Computational Biology、Briefings in Bioinformatics、IEEE/ACM TCBB 等期刊与会议。</strong></p>
+  <img src="{{ base_path }}/files/figure4-publications-summary.png" alt="图4 代表性论文统计图" loading="lazy" />
+</section>

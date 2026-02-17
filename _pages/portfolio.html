@@ -7,7 +7,70 @@ author_profile: true
 
 {% include base_path %}
 
+<style>
+.project-group-title {
+  margin: 1.4rem 0 0.8rem;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #0f172a;
+}
+.project-grid {
+  display: grid;
+  gap: 14px;
+}
+.project-card {
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff;
+}
+.project-title {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+.project-meta {
+  margin: 0 0 6px;
+  color: #374151;
+  font-size: 0.92rem;
+}
+.project-note {
+  margin: 8px 0 0;
+  color: #111827;
+  font-size: 0.94rem;
+}
+</style>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
+{% assign projects = site.portfolio | sort: "order" %}
+
+<h2 class="project-group-title">主持项目</h2>
+<div class="project-grid">
+{% for post in projects %}
+  {% if post.group == "主持" %}
+    <article class="project-card">
+      <h3 class="project-title">{{ post.title }}</h3>
+      <p class="project-meta"><strong>项目类别：</strong>{{ post.category | default: "—" }}</p>
+      <p class="project-meta"><strong>项目编号：</strong>{{ post.project_no | default: "—" }}</p>
+      <p class="project-meta"><strong>角色：</strong>{{ post.role | default: "—" }}</p>
+      <p class="project-meta"><strong>状态：</strong>{{ post.status | default: "—" }}</p>
+      <p class="project-note">{{ post.excerpt }}</p>
+    </article>
+  {% endif %}
 {% endfor %}
+</div>
+
+<h2 class="project-group-title">参与项目</h2>
+<div class="project-grid">
+{% for post in projects %}
+  {% if post.group == "参与" %}
+    <article class="project-card">
+      <h3 class="project-title">{{ post.title }}</h3>
+      <p class="project-meta"><strong>项目类别：</strong>{{ post.category | default: "—" }}</p>
+      <p class="project-meta"><strong>项目编号：</strong>{{ post.project_no | default: "—" }}</p>
+      <p class="project-meta"><strong>角色：</strong>{{ post.role | default: "—" }}</p>
+      <p class="project-meta"><strong>状态：</strong>{{ post.status | default: "—" }}</p>
+      <p class="project-note">{{ post.excerpt }}</p>
+    </article>
+  {% endif %}
+{% endfor %}
+</div>

@@ -8,5 +8,11 @@ collection: publications
 selected: true
 note_cn: "通过子空间分割建模药物与 miRNA 双向关联，提高关联挖掘准确率。"
 award: "CCF B / SCI Q1"
-project_url: "https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp"
+tags:
+  - "CCF B / SCI Q1"
+doi_url:
+pdf_url:
+code_url:
+data_url:
+project_url:
 ---

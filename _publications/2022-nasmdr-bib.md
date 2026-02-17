@@ -8,5 +8,11 @@ collection: publications
 selected: true
 note_cn: "结合神经架构搜索与图同构网络，提升 miRNA 药物耐药预测效果。"
 award: "CCF B / SCI Q1"
-project_url: "https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp"
+tags:
+  - "CCF B / SCI Q1"
+doi_url:
+pdf_url:
+code_url:
+data_url:
+project_url:
 ---

@@ -8,5 +8,11 @@ collection: publications
 selected: true
 note_cn: "提出左右转移矩阵框架，提升分子关联预测性能与稳定性。"
 award: "CCF B / SCI Q1"
-project_url: "https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp"
+tags:
+  - "CCF B / SCI Q1"
+doi_url:
+pdf_url:
+code_url:
+data_url:
+project_url:
 ---

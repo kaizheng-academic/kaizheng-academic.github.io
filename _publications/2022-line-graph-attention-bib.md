@@ -8,5 +8,11 @@ collection: publications
 selected: true
 note_cn: "将线图注意力网络用于疾病相关 piRNA 预测，提升结构表达能力。"
 award: "CCF B / SCI Q1"
-project_url: "https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp"
+tags:
+  - "CCF B / SCI Q1"
+doi_url:
+pdf_url:
+code_url:
+data_url:
+project_url:
 ---
