@@ -5,32 +5,21 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
+Selected publications and full publication details are updated on my institutional page:
+- <https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp>
 
+## Selected Papers
+1. Zheng K, Wang J X, Xu J H. Graph-Theoretic Insights into Bayesian Personalized Ranking for Recommendation. **NeurIPS**, 2025.
+2. Zheng K, Duan G H, Yang M Y, et al. LRTM: Left-Right Transition Matrices for Molecular Association Prediction. **IEEE/ACM Transactions on Computational Biology and Bioinformatics**, 2025.
+3. Zheng K, Zhang X L, Wang L, et al. SPRDA: a link prediction approach based on structural perturbation to infer disease-associated piRNAs. **Briefings in Bioinformatics**, 2023.
+4. Zheng K, Zhao H, Zhao Q, et al. NASMDR: a framework for miRNA-drug resistance prediction using neural architecture search and graph isomorphism networks. **Briefings in Bioinformatics**, 2022.
+5. Zheng K, You Z H, Wang L, et al. DBMDA: A unified embedding for sequence-based miRNA similarity measure with applications to predict and validate miRNA-disease associations. **Molecular Therapy - Nucleic Acids**, 2020.
+
+## Metrics
+- Total papers: 40+
+- Google Scholar citations: 1500+
+- H-index: 19
 
 

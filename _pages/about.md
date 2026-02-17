@@ -1,27 +1,25 @@
 ---
 permalink: /
-title: "郑凯"
+title: "About Me"
 author_profile: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-郑凯，中国石油大学（华东）计算机学院讲师，硕士生导师。研究领域为计算机科学与生物医学交叉方向，聚焦生物信息学（Bioinformatics）、网络几何学、生物医学大数据分析与人工智能。
+I am **Kai Zheng**, Lecturer and Master's supervisor at the College of Computer Science, China University of Petroleum (East China).
+My research focuses on the intersection of computer science and biomedicine, including **bioinformatics**, **network geometry**, **biomedical data mining**, and **artificial intelligence**.
 
-教育背景：
-- 2017 年毕业于中南大学计算机科学与技术专业，获工学学士学位
-- 2020 年毕业于中国矿业大学计算机应用技术专业，获工学硕士学位
-- 2024 年毕业于中南大学计算机科学与技术专业，获工学博士学位
+## Academic Background
+- B.Eng. in Computer Science and Technology, Central South University (2017)
+- M.Eng. in Computer Application Technology, China University of Mining and Technology (2020)
+- Ph.D. in Computer Science and Technology, Central South University (2024)
 
-学术与科研：
-- 主持国家自然科学基金青年项目、省青年项目
-- 参与国家重点研发计划和国家自然科学基金面上项目多项
-- 发表学术论文 40 余篇，发表于 Nature Communications、NeurIPS、PLOS Computational Biology、Briefings in Bioinformatics、IEEE/ACM TCBB 等
-- 谷歌学术引用 1500 余次，H-index = 19
+## Research Overview
+- Principal Investigator, National Natural Science Foundation of China (Youth Program)
+- Principal Investigator, Shandong Provincial Natural Science Foundation (Youth Program)
+- Participant in multiple national key R&D and NSFC General Program projects
+- 40+ papers in venues including *Nature Communications*, *NeurIPS*, *PLOS Computational Biology*, *Briefings in Bioinformatics*, and *IEEE/ACM TCBB*
+- Google Scholar citations: 1500+ | H-index: 19
 
-联系方式：
-- Email：<kaizheng@upc.edu.cn>
-- 个人主页：<https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp>
-
-详细经历请见 `CV` 页面。
+Please see the `Publications`, `Projects`, and `CV` sections for more details.

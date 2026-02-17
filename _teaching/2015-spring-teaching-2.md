@@ -1,20 +1,16 @@
 ---
-title: "Teaching experience 2"
+title: "Graduate Supervision"
 collection: teaching
-type: "Workshop"
-permalink: /teaching/2015-spring-teaching-1
-venue: "University 1, Department"
-date: 2015-01-01
-location: "City, Country"
+type: "Master supervision"
+permalink: /teaching/graduate-supervision
+venue: "China University of Petroleum (East China), College of Computer Science"
+date: 2025-09-01
+location: "Qingdao, China"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+Research supervision directions:
+- Bioinformatics
+- Biomedical data mining
+- Artificial intelligence
 
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+Students are encouraged to build strong methodological foundations and publish high-quality research outputs.
