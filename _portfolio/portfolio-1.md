@@ -1,14 +1,14 @@
 ---
-title: "NSFC Youth Project (PI)"
-excerpt: "Geometric deep learning for miRNA-drug interaction prediction"
+title: "国家自然科学基金青年项目（主持）"
+excerpt: "基于几何深度学习的 miRNA-药物相互作用预测"
 collection: portfolio
 ---
 
-**Project title**: Research on miRNA-drug interaction prediction methods based on geometric deep learning.
+**项目名称**：基于几何深度学习的 miRNA-药物相互作用预测方法研究。
 
-- Funding: National Natural Science Foundation of China (Youth Program)
-- Grant No.: 62502540
-- Role: Principal Investigator
-- Status: Ongoing
+- 资助类别：国家自然科学基金青年项目
+- 项目编号：62502540
+- 角色：主持
+- 状态：在研
 
-This project develops geometric deep learning models for reliable and interpretable molecular interaction prediction in biomedical applications.
+本项目面向生物医学场景中的分子关联预测，构建高可靠、可解释的几何深度学习模型。

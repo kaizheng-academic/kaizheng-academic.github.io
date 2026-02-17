@@ -1,16 +1,16 @@
 ---
 layout: archive
-title: "Contact"
+title: "联系"
 permalink: /contact/
 author_profile: true
 ---
 
-If you are interested in collaboration, student supervision, or academic exchange, please feel free to contact me.
+如果你对学术合作、研究生指导或学术交流感兴趣，欢迎联系我。
 
-- Email: <kaizheng@upc.edu.cn>
-- Institutional Profile: <https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp>
+- 邮箱：<kaizheng@upc.edu.cn>
+- 机构主页：<https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp>
 - GitHub: <https://github.com/kaizheng-academic>
 
-Office Address:
-- Room E1110, Engineering Building E
-- No. 66 Changjiang West Road, Huangdao District, Qingdao, Shandong, China
+办公地址：
+- 工科 E 座 1110 室
+- 山东省青岛市黄岛区长江西路 66 号

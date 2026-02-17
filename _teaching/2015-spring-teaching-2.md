@@ -1,16 +1,16 @@
 ---
-title: "Graduate Supervision"
+title: "研究生指导"
 collection: teaching
-type: "Master supervision"
+type: "硕士培养"
 permalink: /teaching/graduate-supervision
-venue: "China University of Petroleum (East China), College of Computer Science"
+venue: "中国石油大学（华东）计算机学院"
 date: 2025-09-01
-location: "Qingdao, China"
+location: "青岛，中国"
 ---
 
-Research supervision directions:
-- Bioinformatics
-- Biomedical data mining
-- Artificial intelligence
+指导方向：
+- 生物信息学
+- 生物医学数据挖掘
+- 人工智能
 
-Students are encouraged to build strong methodological foundations and publish high-quality research outputs.
+鼓励学生夯实方法基础，围绕真实科研问题开展高质量研究与论文工作。
