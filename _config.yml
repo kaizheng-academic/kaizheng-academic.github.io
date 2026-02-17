@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "郑凯 / 学术简历"
 title_separator          : "-"
 name                     : &name "郑凯"
-description              : &description "中国石油大学（华东）计算机学院讲师，研究方向为生物信息学与人工智能"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "讲师、硕导，山东省人工智能学会理事，山东省优秀青年创新团队带头人；发表论文40余篇，引用1600余次，H指数21"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://kaizheng-academic.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "郑凯"
   pronouns         : # example: "she/her"  
-  bio              : "中国石油大学（华东）计算机学院讲师，硕士生导师"
+  bio              : "讲师、硕导，山东省人工智能学会理事，论文40余篇，H指数21"
   location         : "山东青岛，中国"
   employer         : "中国石油大学（华东）计算机学院"
   uri              : # URL
