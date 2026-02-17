@@ -8,8 +8,12 @@ author_profile: true
 {% include base_path %}
 
 <style>
-.pub-intro {
-  margin-bottom: 1.4rem;
+.pub-year {
+  margin: 1.4rem 0 0.8rem;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #0f172a;
+  font-size: 1.15rem;
 }
 .pub-grid {
   display: grid;
@@ -70,34 +74,63 @@ author_profile: true
   text-decoration: none;
   background: #eef2f7;
 }
+.pub-btn--disabled {
+  color: #94a3b8;
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 </style>
 
-<div class="pub-intro">
-  <p>以下为代表性论文（近 5 年与高影响工作优先），完整清单与最新更新请见机构主页：</p>
-  <p><a href="https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp" target="_blank" rel="noreferrer">中国石油大学（华东）教师主页</a></p>
-  <p>学术指标：论文 40+，谷歌学术引用 1500+，h 指数 19。</p>
-</div>
+{% assign selected_pubs = site.publications | where: "selected", true | sort: "date" | reverse %}
+{% assign years = selected_pubs | map: "year" | uniq %}
 
-{% assign selected_pubs = site.publications | where: "selected", true | sort: "year" | reverse %}
-
-<div class="pub-grid">
-  {% for post in selected_pubs %}
-    <article class="pub-card">
-      <h3 class="pub-title">{{ post.title }}</h3>
-      <p class="pub-meta"><strong>作者：</strong>{{ post.authors }}</p>
-      <p class="pub-meta"><strong>发表：</strong>{{ post.venue }}（{{ post.year }}）</p>
-      {% if post.note_cn %}
-        <p class="pub-note">{{ post.note_cn }}</p>
+{% for y in years %}
+  <h2 class="pub-year">{{ y }}</h2>
+  <div class="pub-grid">
+    {% for post in selected_pubs %}
+      {% if post.year == y %}
+        <article class="pub-card">
+          <h3 class="pub-title">{{ post.title }}</h3>
+          <p class="pub-meta"><strong>作者：</strong>{{ post.authors }}</p>
+          <p class="pub-meta"><strong>发表：</strong>{{ post.venue }}（{{ post.year }}）</p>
+          {% if post.note_cn %}
+            <p class="pub-note">{{ post.note_cn }}</p>
+          {% endif %}
+          {% if post.tags %}
+            <div class="pub-badges">
+              {% for t in post.tags %}
+                <span class="pub-badge">{{ t }}</span>
+              {% endfor %}
+            </div>
+          {% elsif post.award %}
+            <div class="pub-badges"><span class="pub-badge">{{ post.award }}</span></div>
+          {% endif %}
+          <div class="pub-actions">
+            {% if post.pdf_url %}
+              <a class="pub-btn" href="{{ post.pdf_url }}" target="_blank" rel="noreferrer">论文</a>
+            {% else %}
+              <span class="pub-btn pub-btn--disabled">论文</span>
+            {% endif %}
+            {% if post.doi_url %}
+              <a class="pub-btn" href="{{ post.doi_url }}" target="_blank" rel="noreferrer">DOI</a>
+            {% else %}
+              <span class="pub-btn pub-btn--disabled">DOI</span>
+            {% endif %}
+            {% if post.code_url %}
+              <a class="pub-btn" href="{{ post.code_url }}" target="_blank" rel="noreferrer">代码</a>
+            {% else %}
+              <span class="pub-btn pub-btn--disabled">代码</span>
+            {% endif %}
+            {% if post.data_url %}
+              <a class="pub-btn" href="{{ post.data_url }}" target="_blank" rel="noreferrer">数据</a>
+            {% else %}
+              <span class="pub-btn pub-btn--disabled">数据</span>
+            {% endif %}
+          </div>
+        </article>
       {% endif %}
-      {% if post.award %}
-        <div class="pub-badges"><span class="pub-badge">{{ post.award }}</span></div>
-      {% endif %}
-      <div class="pub-actions">
-        {% if post.pdf_url %}<a class="pub-btn" href="{{ post.pdf_url }}" target="_blank" rel="noreferrer">论文</a>{% endif %}
-        {% if post.code_url %}<a class="pub-btn" href="{{ post.code_url }}" target="_blank" rel="noreferrer">代码</a>{% endif %}
-        {% if post.data_url %}<a class="pub-btn" href="{{ post.data_url }}" target="_blank" rel="noreferrer">数据</a>{% endif %}
-        {% if post.project_url %}<a class="pub-btn" href="{{ post.project_url }}" target="_blank" rel="noreferrer">详情</a>{% endif %}
-      </div>
-    </article>
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
+{% endfor %}
