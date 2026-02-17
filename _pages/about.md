@@ -19,6 +19,6 @@ redirect_from:
 我的研究兴趣主要包括网络几何学、生物信息学、生物医学大数据分析与人工智能。方法上，我以图学习、几何深度学习与统计建模为核心，结合真实生物医学数据开展验证，强调模型性能、可解释性与应用可迁移性。
 
 ## 进一步了解与合作
-近年来，我在 Nature Communications、NeurIPS、PLOS Computational Biology、Briefings in Bioinformatics、IEEE/ACM TCBB 等期刊与会议发表论文 40 余篇，谷歌学术引用 1500 余次，H-index 为 19。
+近年来，我在 Nature Communications、NeurIPS、PLOS Computational Biology、Briefings in Bioinformatics、IEEE/ACM TCBB 等期刊与会议发表论文 40 余篇，谷歌学术引用 1500 余次，h 指数为 19。
 
 你可以在“成果发表”和“研究项目”页面查看更详细的研究内容与代表工作。若你希望进行学术交流、联合研究或研究生培养合作，欢迎通过“联系”页面与我沟通。

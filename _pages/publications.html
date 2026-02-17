@@ -7,18 +7,97 @@ author_profile: true
 
 {% include base_path %}
 
-完整论文清单与持续更新可见：
-- <https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp>
+<style>
+.pub-intro {
+  margin-bottom: 1.4rem;
+}
+.pub-grid {
+  display: grid;
+  gap: 14px;
+}
+.pub-card {
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff;
+}
+.pub-title {
+  margin: 0 0 6px;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+.pub-meta {
+  color: #4b5563;
+  font-size: 0.92rem;
+  margin: 0 0 6px;
+}
+.pub-note {
+  margin: 0 0 10px;
+  color: #1f2937;
+  font-size: 0.94rem;
+}
+.pub-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+.pub-badge {
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #edf4ff;
+  color: #1d4ed8;
+  border: 1px solid #dbeafe;
+}
+.pub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.pub-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #cfd9e6;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: #0f172a;
+  background: #f8fafc;
+}
+.pub-btn:hover {
+  text-decoration: none;
+  background: #eef2f7;
+}
+</style>
 
-## 代表性论文（部分）
-1. Zheng K, Wang J X, Xu J H. Graph-Theoretic Insights into Bayesian Personalized Ranking for Recommendation. **NeurIPS**, 2025.
-2. Zheng K, Duan G H, Yang M Y, et al. LRTM: Left-Right Transition Matrices for Molecular Association Prediction. **IEEE/ACM Transactions on Computational Biology and Bioinformatics**, 2025.
-3. Zheng K, Zhang X L, Wang L, et al. SPRDA: a link prediction approach based on structural perturbation to infer disease-associated piRNAs. **Briefings in Bioinformatics**, 2023.
-4. Zheng K, Zhao H, Zhao Q, et al. NASMDR: a framework for miRNA-drug resistance prediction using neural architecture search and graph isomorphism networks. **Briefings in Bioinformatics**, 2022.
-5. Zheng K, You Z H, Wang L, et al. DBMDA: A unified embedding for sequence-based miRNA similarity measure with applications to predict and validate miRNA-disease associations. **Molecular Therapy - Nucleic Acids**, 2020.
+<div class="pub-intro">
+  <p>以下为代表性论文（近 5 年与高影响工作优先），完整清单与最新更新请见机构主页：</p>
+  <p><a href="https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp" target="_blank" rel="noreferrer">中国石油大学（华东）教师主页</a></p>
+  <p>学术指标：论文 40+，谷歌学术引用 1500+，h 指数 19。</p>
+</div>
 
-## 学术指标
-- 论文总数：40+
-- 谷歌学术引用：1500+
-- H-index: 19
+{% assign selected_pubs = site.publications | where: "selected", true | sort: "year" | reverse %}
 
+<div class="pub-grid">
+  {% for post in selected_pubs %}
+    <article class="pub-card">
+      <h3 class="pub-title">{{ post.title }}</h3>
+      <p class="pub-meta"><strong>作者：</strong>{{ post.authors }}</p>
+      <p class="pub-meta"><strong>发表：</strong>{{ post.venue }}（{{ post.year }}）</p>
+      {% if post.note_cn %}
+        <p class="pub-note">{{ post.note_cn }}</p>
+      {% endif %}
+      {% if post.award %}
+        <div class="pub-badges"><span class="pub-badge">{{ post.award }}</span></div>
+      {% endif %}
+      <div class="pub-actions">
+        {% if post.pdf_url %}<a class="pub-btn" href="{{ post.pdf_url }}" target="_blank" rel="noreferrer">论文</a>{% endif %}
+        {% if post.code_url %}<a class="pub-btn" href="{{ post.code_url }}" target="_blank" rel="noreferrer">代码</a>{% endif %}
+        {% if post.data_url %}<a class="pub-btn" href="{{ post.data_url }}" target="_blank" rel="noreferrer">数据</a>{% endif %}
+        {% if post.project_url %}<a class="pub-btn" href="{{ post.project_url }}" target="_blank" rel="noreferrer">详情</a>{% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>

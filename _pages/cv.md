@@ -9,6 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
+## 简历预览
+<iframe src="{{ base_path }}/files/kai-zheng-cv.pdf" width="100%" height="1100" style="border:1px solid #d9e0ea;border-radius:8px;"></iframe>
+
+如无法预览，请点击这里打开 PDF：<a href="{{ base_path }}/files/kai-zheng-cv.pdf" target="_blank" rel="noreferrer">简历 PDF</a>
+
 ## 个人信息
 - 姓名：郑凯
 - 职称：讲师（硕士生导师）
@@ -35,7 +40,7 @@ redirect_from:
 
 ## 代表性成果
 - 学术论文 40 余篇，发表于 Nature Communications、NeurIPS、PLOS Computational Biology、Briefings in Bioinformatics、IEEE/ACM TCBB 等
-- 谷歌学术引用 1500 余次，H-index = 19
+- 谷歌学术引用 1500 余次，h 指数 19
 - 荣获 ICIC 2019 Best Paper Award
 
 ## 学术服务与课程

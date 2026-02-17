@@ -9,7 +9,7 @@ author_profile: true
 
 - 邮箱：<kaizheng@upc.edu.cn>
 - 机构主页：<https://computer.upc.edu.cn/_s104/2025/0320/c20898a452867/page.psp>
-- GitHub: <https://github.com/kaizheng-academic>
+- GitHub：<https://github.com/kaizheng-academic>
 
 办公地址：
 - 工科 E 座 1110 室
