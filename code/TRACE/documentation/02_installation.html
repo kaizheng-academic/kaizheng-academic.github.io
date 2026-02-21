@@ -1,3 +1,546 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Installation</title><link rel="stylesheet" href="/code/TRACE/assets/css/styles.css"></head><body class="scope-markdown"><div class="container"><h1>Installation</h1><div class="highlight"><pre class="highlight"><code>conda activate DRI
-python scripts/run_trace_e1.py --config configs/trace_e1.yaml --out outputs/run_001
-python scripts/check_trace_repro.py --run outputs/run_001 --golden baseline/golden_trace_e1.csv --tol 1e-12</code></pre></div><p><a href="/code/TRACE/">Back to Overview</a></p></div></body></html>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+
+<title>Installation</title>
+<meta name="description" content="">
+
+<link rel="canonical" href="https://kaizheng-academic.github.io/code/TRACE/documentation/02_installation.html">
+<link rel="alternate" type="application/rss+xml" title="" href="/code/TRACE/feed.xml">
+
+
+
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="
+    crossorigin="anonymous"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+    crossorigin="anonymous"
+/>
+<link
+    rel="stylesheet"
+    href="/code/TRACE/assets/css/styles.css"
+/>
+
+
+
+    </head>
+
+    
+    <body
+        class="layout-page"
+        data-spy="scroll"
+        data-target="#page-toc"
+        data-offset="0"
+    >
+        <header class="navbar navbar-expand-md navbar-custom" id="top">
+    <div class="container">
+        <a class="navbar-brand" href="/code/TRACE/">TRACE</a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <nav class="navbar-collapse collapse" role="navigation" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                        <li class="nav-item ">
+                            <a
+                                class="nav-link"
+                                href="/code/TRACE/documentation/01_About.html"
+                            >
+                                About
+                            </a>
+                        </li>
+                    
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                        <li class="nav-item ">
+                            <a
+                                class="nav-link"
+                                href="/code/TRACE/documentation/03_data.html"
+                            >
+                                Data Input
+                            </a>
+                        </li>
+                    
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                        <li class="nav-item ">
+                            <a
+                                class="nav-link"
+                                href="/code/TRACE/documentation/04_CARD_Example.html"
+                            >
+                                Example Analysis
+                            </a>
+                        </li>
+                    
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                        <li class="nav-item ">
+                            <a
+                                class="nav-link"
+                                href="/code/TRACE/documentation/05_Experiments.html"
+                            >
+                                Experiments
+                            </a>
+                        </li>
+                    
+                
+                    
+                    
+
+                    
+                    
+
+                    
+                        <li class="nav-item active">
+                            <a
+                                class="nav-link"
+                                href="/code/TRACE/documentation/02_installation.html"
+                            >
+                                Installation
+                            </a>
+                        </li>
+                    
+                
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item ">
+                        <a
+                            class="nav-link"
+                            href="https://github.com/kaizheng-academic"
+                        >
+                            
+    <i
+        class="fab fa-github fa-fw "
+        aria-hidden="true"
+    ></i>
+
+
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+        
+<div class="site-masthead mb-5 py-5 text-left">
+    <div class="container">
+        <h1 class="site-masthead__title mb-1">Installation</h1>
+
+
+
+        
+
+    </div>
+</div>
+
+
+        <div class="container">
+    <div class="row">
+        <main class="col-md-9 layout-page__main">
+            <section class="mobile-toc border mb-3 p-3 d-md-none">
+                <div class="d-flex align-items-center">
+                    <h2 class="mb-0">Table of Contents</h2>
+
+                    <button
+                        class="js-only ml-2 toggle-toc"
+                        aria-controls="mobileTOC"
+                        aria-label="Toggle table of contents"
+                        aria-expanded="true"
+                    >
+                        <span aria-hidden="true" data-role="toggle">Hide</span>
+                    </button>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mobileTOC" class="js-toc mb-0 mt-2">
+  <li><a href="#dependencies">Dependencies</a></li>
+</ul>
+
+
+            </section>
+
+            <section class="scope-markdown">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><code class="language-plaintext highlighter-rouge">TRACE</code> is implemented as an R package, which can be installed from GitHub by:</p>
+      <h3 id="dependencies">
+        
+        
+          Dependencies <a href="#dependencies" class="." title="" >#</a>
+        
+        
+      </h3>
+<ul>
+  <li>R version &gt;= 4.0.0.</li>
+  <li>R packages: SingleCellExperiment, SummarizedExperiment, concaveman, sp, Matrix, methods, ggplot2, ggcorrplot, MuSiC, fields, MCMCpack, dplyr, sf, RANN, stats, reshape2, RColorBrewe, scatterpie, grDevices, stats, nnls, pbmcapply, spatstat, gtools, RcppML, NMF</li>
+</ul>
+    
+      <h4 id="1-install-devtools-if-necessary">
+        
+        
+          1. Install <code class="language-plaintext highlighter-rouge">devtools</code> if necessary <a href="#1-install-devtools-if-necessary" class="." title="" >#</a>
+        
+        
+      </h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s1">'devtools'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+    
+      <h4 id="2-install-card">
+        
+        
+          2. Install <code class="language-plaintext highlighter-rouge">TRACE</code> <a href="#2-install-card" class="." title="" >#</a>
+        
+        
+      </h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">devtools</span><span class="o">::</span><span class="n">install_github</span><span class="p">(</span><span class="s1">'YMa-lab/CARD'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+    
+      <h4 id="3-load-package">
+        
+        
+          3. Load package <a href="#3-load-package" class="." title="" >#</a>
+        
+        
+      </h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">TRACE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This package is supported for Windows 10, MAC and Linux. The package has been tested on the following systems:</p>
+<ul>
+  <li>Windows 10: Home (1903)</li>
+  <li>MAC: OSX (10.14.1)</li>
+  <li>Linux: Ubuntu (16.04.6)</li>
+</ul>
+    
+      <h4 id="4-some-possible-issues-when-installing-the-package-especially-on-the-macos-system">
+        
+        
+          4. Some possible issues when installing the package, especially on the MacOS system <a href="#4-some-possible-issues-when-installing-the-package-especially-on-the-macos-system" class="." title="" >#</a>
+        
+        
+      </h4>
+<p>(1) Cannot find tools necessary when using R in the MacOS system.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Error</span><span class="o">:</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="s1">'CARD'</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">GitHub</span><span class="o">:</span><span class="w">
+  </span><span class="n">Could</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">compile</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">package</span><span class="w">
+</span><span class="n">Call</span><span class="w"> </span><span class="n">`pkgbuild::check_build_tools(debug = TRUE)`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">diagnose</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">problem.</span><span class="w">
+</span></code></pre></div></div>
+<p>possible solution: in R, type the code <code class="language-plaintext highlighter-rouge">options(buildtools.check = function(action) TRUE )</code>, see the discussion about this error, <a href="https://stackoverflow.com/questions/37776377/error-when-installing-an-r-package-from-github-could-not-find-build-tools-neces">link</a></p>
+
+<p>(2) library not found for -lgfortran when using R in the MacOS system.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ld</span><span class="o">:</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">-</span><span class="n">lgfortran</span><span class="w">
+</span></code></pre></div></div>
+<p>It seems the gfortran is not well installed on the MacOS system. Please check this <a href="https://thecoatlessprofessor.com/programming/cpp/r-compiler-tools-for-rcpp-on-macos/">link</a> for the gfortran installation to see if it helps.</p>
+
+
+
+            </section>
+        </main>
+
+        <aside class="col-md-3 layout-page__sidebar d-none d-md-block hidden-print">
+            
+            <nav id="page-toc" class="page-sidebar">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="list-unstyled pl-0">
+  <li><a href="#dependencies" class="nav-link px-3 py-1">Dependencies</a></li>
+</ul>
+
+
+
+    <a class="px-3 text-muted" href="#top">
+        <small>Back to top</small>
+    </a>
+</nav>
+
+            
+        </aside>
+    </div>
+
+    
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/02_installation.html';
+            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/02_installation.html';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
+
+
+        <footer class="site-footer border-top mt-4 py-4 text-center" role="contentinfo">
+    
+
+    <div class="container">
+    
+        <div class="site-footer__social-links">
+            <ul class="list-inline mb-2">
+                
+                    <li class="list-inline-item">
+                        <iframe
+                            class="github-btn"
+                            src="https://ghbtns.com/github-btn.html?user=YMa-lab&amp;repo=CARD&amp;type=watch&amp;count=true"
+                            width="90"
+                            height="20"
+                            title="Star on GitHub"
+                        ></iframe>
+                    </li>
+                    <li class="list-inline-item">
+                        <iframe
+                            class="github-btn"
+                            src="https://ghbtns.com/github-btn.html?user=YMa-lab&amp;repo=CARD&amp;type=fork&amp;count=true"
+                            width="90"
+                            height="20"
+                            title="Fork on GitHub"
+                        ></iframe>
+                    </li>
+                
+                
+                
+                
+                
+            </ul>
+        </div>
+    
+
+    <div class="site-footer__body">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                
+                    <ul class="site-footer__links text-left list-inline mb-0">
+                        
+                            <li class="list-inline-item">
+                                <a
+                                    href="https://github.com/kaizheng-academic"
+                                    class="site-footer__link"
+                                >
+                                    
+    <i
+        class="fab fa-github fa-fw "
+        aria-hidden="true"
+    ></i>
+
+
+                                    <span>GitHub</span>
+                                </a>
+                            </li>
+                        
+                            <li class="list-inline-item">
+                                <a
+                                    href="https://github.com/kaizheng-academicissues?state=open"
+                                    class="site-footer__link"
+                                >
+                                    
+    <i
+        class="fas fa-bug fa-fw "
+        aria-hidden="true"
+    ></i>
+
+
+                                    <span>Issues</span>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+
+            <div class="col-md-7 text-left text-md-right">
+                
+                    <div class="site-footer__summary">
+                        
+                        
+
+                        <p class="mb-0">Licensed under
+
+                                <a href="https://www.gnu.org/licenses/licenses.en.html" target="_blank">GNU License 3.0</a></p>
+
+                        <p class="mb-0">
+                            Documentation template by <a href="http://getbootstrap.com">Bootstrap team</a>, generated with
+                            <a href="https://github.com/allejo/jekyll-docs-theme">Jekyll Docs Theme</a>
+                        </p>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</footer>
+
+
+
+<!-- Bootstrap Related Dependencies -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"
+    integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" crossorigin="anonymous"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"
+></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.2/trianglify.min.js"></script>
+    <script>
+        let uiColors = [];
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                uiColors = [
+                    "#062a48",
+                    "#304e67",
+                ];
+            } else {
+                uiColors = [
+                    "#080331",
+                    "#673051",
+                ];
+            }
+    </script>
+
+
+<script src="/code/TRACE/assets/js/docs.js"></script>
+
+
+
+
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-123456-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+    </body>
+</html>
