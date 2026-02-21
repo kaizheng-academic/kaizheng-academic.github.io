@@ -4,9 +4,9 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 python3 - "$ROOT" <<'PY'
+import html
 import json
 import pathlib
-import html
 import sys
 
 root = pathlib.Path(sys.argv[1])
@@ -32,12 +32,14 @@ for i, p in enumerate(papers, 1):
 papers.sort(key=lambda x: (int(x["year"]), x["slug"]), reverse=True)
 published = [p for p in papers if p.get("status") == "published"]
 
+
 def nav_block(base, active, code_url):
     def cls(name):
         return "nav-link active" if name == active else "nav-link"
+
     return f'''<nav class="navbar navbar-expand-lg navbar-light navbar-doc">
   <div class="container">
-    <a class="navbar-brand" href="{base}/">CARD</a>
+    <a class="navbar-brand" href="{base}/">TRACE</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item"><a class="{cls('about')}" href="{base}/documentation/01_About.html">About</a></li>
       <li class="nav-item"><a class="{cls('data')}" href="{base}/documentation/03_data.html">Data Input</a></li>
@@ -49,13 +51,33 @@ def nav_block(base, active, code_url):
   </div>
 </nav>'''
 
-def page_shell(title, css_path, nav_html, body_html, js_path):
+
+def footer_block(repo_url):
+    return f'''<footer class="site-footer border-top mt-4 py-4 text-center" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__social-links mb-2">
+      <a class="footer-link" href="{html.escape(repo_url)}" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="footer-link" href="{html.escape(repo_url)}/issues" target="_blank" rel="noreferrer">Issues</a>
+      <a class="footer-link" href="https://www.gnu.org/licenses/licenses.en.html" target="_blank" rel="noreferrer">GNU License 3.0</a>
+    </div>
+    <div class="site-footer__body">
+      <p class="footer-note">Theme style inspired by Jekyll Docs layout.</p>
+    </div>
+    <div class="disqus-placeholder" id="disqus_thread">
+      <p class="doc-muted">Comments powered by Disqus (placeholder).</p>
+    </div>
+  </div>
+</footer>'''
+
+
+def page_shell(title, css_path, nav_html, body_html, js_path, repo_url):
     return f'''<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
+  <meta name="description" content="TRACE paper documentation" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
   <link rel="stylesheet" href="{css_path}" />
@@ -65,10 +87,18 @@ def page_shell(title, css_path, nav_html, body_html, js_path):
 <main class="doc-wrap">
 {body_html}
 </main>
+{footer_block(repo_url)}
 <script src="{js_path}"></script>
 </body>
 </html>
 '''
+
+
+def must_no_card(text, where):
+    safe = text.replace("04_CARD_Example.html", "04__EXAMPLE.html")
+    if "CARD" in safe:
+        raise SystemExit(f"错误: {where} 出现 CARD 文案")
+
 
 for p in papers:
     slug = p["slug"]
@@ -89,6 +119,7 @@ for p in papers:
     kws = p.get("keywords") or []
 
     keywords_html = " ".join([f"<span class='badge'>{html.escape(k)}</span>" for k in kws]) if kws else "<span class='badge'>N/A</span>"
+
     resource_buttons = [f"<a class='btn' href='{html.escape(code_url)}' target='_blank' rel='noreferrer'>GitHub</a>"]
     if paper_url:
         resource_buttons.append(f"<a class='btn' href='{html.escape(paper_url)}' target='_blank' rel='noreferrer'>Paper</a>")
@@ -97,20 +128,20 @@ for p in papers:
     resources = "\n            ".join(resource_buttons)
 
     overview_body = f'''  <section class="doc-card">
-    <h1 class="doc-title">CARD Overview</h1>
+    <h1 class="doc-title">TRACE Overview</h1>
     <p class="doc-muted">{title}</p>
-    <div class="doc-hero">Overview Figure Placeholder</div>
+    <div class="doc-hero"><img src="/code/assets/images/overview-placeholder.jpg" alt="overview" /></div>
     <div class="doc-section">
       <h2>{venue} · {int(p['year'])}</h2>
       <p><strong>Authors:</strong> {authors}</p>
       <p>{summary}</p>
-      <p>Example Analysis with CARD: <a href="{base}/documentation/04_CARD_Example.html">here</a>.</p>
+      <p>Example Analysis with TRACE: <a href="{base}/documentation/04_CARD_Example.html">here</a>.</p>
     </div>
   </section>'''
 
     about_body = f'''  <section class="doc-card">
     <h1 class="doc-title">About</h1>
-    <p class="doc-muted">Paper-specific CARD-style documentation.</p>
+    <p class="doc-muted">Paper-specific TRACE-style documentation.</p>
     <div class="doc-section">
       <p><strong>Title:</strong> {title}</p>
       <p><strong>Venue:</strong> {venue} ({int(p['year'])})</p>
@@ -120,7 +151,7 @@ for p in papers:
     </div>
   </section>'''
 
-    install_body = f'''  <section class="doc-card">
+    installation_body = f'''  <section class="doc-card">
     <h1 class="doc-title">Installation</h1>
     <div class="doc-section">
       <pre><code>git clone {html.escape(code_url)}
@@ -133,7 +164,7 @@ cd $(basename {html.escape(code_url)})
     data_body = f'''  <section class="doc-card">
     <h1 class="doc-title">Data Input</h1>
     <div class="doc-section">
-      <p>Describe expected input format, preprocessing, and output artifacts for this paper here.</p>
+      <p>Describe expected input format, preprocessing, and output artifacts here.</p>
       <p><strong>Data Link:</strong> {('<a href="'+html.escape(data_url)+'" target="_blank" rel="noreferrer">Open</a>') if data_url else 'N/A'}</p>
     </div>
   </section>'''
@@ -141,6 +172,12 @@ cd $(basename {html.escape(code_url)})
     example_body = f'''  <section class="doc-card">
     <h1 class="doc-title">Example Analysis</h1>
     <div class="doc-section">
+      <div class="example-grid">
+        <img src="/code/assets/images/example-placeholder-01.png" alt="example 1" />
+        <img src="/code/assets/images/example-placeholder-02.png" alt="example 2" />
+        <img src="/code/assets/images/example-placeholder-03.png" alt="example 3" />
+        <img src="/code/assets/images/example-placeholder-04.png" alt="example 4" />
+      </div>
       <div class="paper-item">
         <h5>{title}</h5>
         <p class="paper-meta">{venue} · {int(p['year'])}</p>
@@ -156,24 +193,30 @@ cd $(basename {html.escape(code_url)})
     </div>
   </section>'''
 
-    exp_body = f'''  <section class="doc-card">
+    experiments_body = f'''  <section class="doc-card">
     <h1 class="doc-title">Experiments</h1>
     <div class="doc-section">
-      <p>Summarize experiment setup, metrics, and ablation results for <strong>{title}</strong>.</p>
+      <p>Summarize setup, metrics, and ablation results for <strong>{title}</strong>.</p>
       <ul>
         <li>Environment and dependencies</li>
         <li>Training configuration and random seeds</li>
-        <li>Evaluation metrics and comparison baselines</li>
+        <li>Evaluation metrics and baselines</li>
       </ul>
     </div>
   </section>'''
 
-    (paper_dir / "index.html").write_text(page_shell("CARD Overview", "../assets/css/styles.css", nav_block(base, '', code_url), overview_body, "../assets/js/docs.js"), encoding="utf-8")
-    (doc_dir / "01_About.html").write_text(page_shell("About", "../../assets/css/styles.css", nav_block(base, 'about', code_url), about_body, "../../assets/js/docs.js"), encoding="utf-8")
-    (doc_dir / "02_installation.html").write_text(page_shell("Installation", "../../assets/css/styles.css", nav_block(base, 'install', code_url), install_body, "../../assets/js/docs.js"), encoding="utf-8")
-    (doc_dir / "03_data.html").write_text(page_shell("Data Input", "../../assets/css/styles.css", nav_block(base, 'data', code_url), data_body, "../../assets/js/docs.js"), encoding="utf-8")
-    (doc_dir / "04_CARD_Example.html").write_text(page_shell("Example Analysis", "../../assets/css/styles.css", nav_block(base, 'example', code_url), example_body, "../../assets/js/docs.js"), encoding="utf-8")
-    (doc_dir / "05_Experiments.html").write_text(page_shell("Experiments", "../../assets/css/styles.css", nav_block(base, 'exp', code_url), exp_body, "../../assets/js/docs.js"), encoding="utf-8")
+    pages = {
+        paper_dir / "index.html": page_shell("TRACE Overview", "../assets/css/styles.css", nav_block(base, '', code_url), overview_body, "../assets/js/docs.js", code_url),
+        doc_dir / "01_About.html": page_shell("About", "../../assets/css/styles.css", nav_block(base, 'about', code_url), about_body, "../../assets/js/docs.js", code_url),
+        doc_dir / "02_installation.html": page_shell("Installation", "../../assets/css/styles.css", nav_block(base, 'install', code_url), installation_body, "../../assets/js/docs.js", code_url),
+        doc_dir / "03_data.html": page_shell("Data Input", "../../assets/css/styles.css", nav_block(base, 'data', code_url), data_body, "../../assets/js/docs.js", code_url),
+        doc_dir / "04_CARD_Example.html": page_shell("Example Analysis", "../../assets/css/styles.css", nav_block(base, 'example', code_url), example_body, "../../assets/js/docs.js", code_url),
+        doc_dir / "05_Experiments.html": page_shell("Experiments", "../../assets/css/styles.css", nav_block(base, 'exp', code_url), experiments_body, "../../assets/js/docs.js", code_url),
+    }
+
+    for path, content in pages.items():
+        must_no_card(content, str(path))
+        path.write_text(content, encoding="utf-8")
 
 cards = []
 for p in published:
@@ -188,7 +231,8 @@ index_html = f'''<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CARD Overview</title>
+  <title>TRACE Overview</title>
+  <meta name="description" content="TRACE multi-paper portal" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
   <link rel="stylesheet" href="/code/assets/css/styles.css" />
@@ -196,7 +240,7 @@ index_html = f'''<!doctype html>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light navbar-doc">
     <div class="container">
-      <a class="navbar-brand" href="/code/">CARD</a>
+      <a class="navbar-brand" href="/code/">TRACE</a>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="https://github.com/kaizheng-academic" target="_blank" rel="noreferrer">GitHub</a></li>
       </ul>
@@ -204,19 +248,22 @@ index_html = f'''<!doctype html>
   </nav>
   <main class="doc-wrap">
     <section class="doc-card">
-      <h1 class="doc-title">CARD Overview</h1>
-      <p class="doc-muted">Each article under <code>/code/&lt;slug&gt;/</code> is an independent CARD-style mini-site.</p>
+      <h1 class="doc-title">TRACE Overview</h1>
+      <p class="doc-muted">Each article under <code>/code/&lt;slug&gt;/</code> is an independent TRACE-style mini-site.</p>
+      <div class="doc-hero"><img src="/code/assets/images/overview-placeholder.jpg" alt="overview" /></div>
       <div class="doc-section">
         {''.join(cards) if cards else '<p class="doc-muted">No published papers yet.</p>'}
       </div>
     </section>
   </main>
+  {footer_block('https://github.com/kaizheng-academic')}
   <script src="/code/assets/js/docs.js"></script>
 </body>
 </html>'''
+must_no_card(index_html, str(index_path))
 index_path.write_text(index_html, encoding="utf-8")
 
-print(f"已生成每篇论文CARD站点，共 {len(papers)} 篇")
+print(f"已生成每篇论文TRACE站点，共 {len(papers)} 篇")
 print(f"已生成入口: {index_path}")
 for p in published:
     print(f"- /code/{p['slug']}/")
