@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "neurips-2025-bpr",
+    "title": "Graph-Theoretic Insights into Bayesian Personalized Ranking for Recommendation",
+    "venue": "NeurIPS",
+    "year": 2025,
+    "authors": "Zheng K, Wang J X, Xu J H",
+    "summary_cn": "本工作从图论视角分析 Bayesian Personalized Ranking，为推荐排序模型提供理论解释与改进方向。",
+    "keywords": ["推荐系统", "图学习", "理论分析"],
+    "code_url": "https://github.com/kaizheng-academic",
+    "paper_url": "",
+    "data_url": "",
+    "bibtex": "@inproceedings{zheng2025graph,\n  title={Graph-Theoretic Insights into Bayesian Personalized Ranking for Recommendation},\n  author={Zheng, Kai and Wang, J X and Xu, J H},\n  booktitle={NeurIPS},\n  year={2025}\n}",
+    "status": "published"
+  },
+  {
+    "slug": "lrtm-2025-tcbb",
+    "title": "LRTM: Left-Right Transition Matrices for Molecular Association Prediction",
+    "venue": "IEEE/ACM Transactions on Computational Biology and Bioinformatics",
+    "year": 2025,
+    "authors": "Zheng K, Duan G H, Yang M Y, et al.",
+    "summary_cn": "提出左右转移矩阵框架用于分子关联预测，兼顾性能与模型稳定性。",
+    "keywords": ["分子关联预测", "图模型", "生物信息学"],
+    "code_url": "https://github.com/kaizheng-academic",
+    "paper_url": "",
+    "data_url": "",
+    "bibtex": "@article{zheng2025lrtm,\n  title={LRTM: Left-Right Transition Matrices for Molecular Association Prediction},\n  author={Zheng, Kai and Duan, G H and Yang, M Y and others},\n  journal={IEEE/ACM TCBB},\n  year={2025}\n}",
+    "status": "published"
+  },
+  {
+    "slug": "sprda-2023-bib",
+    "title": "SPRDA: A Link Prediction Approach Based on Structural Perturbation",
+    "venue": "Briefings in Bioinformatics",
+    "year": 2023,
+    "authors": "Zheng K, Zhang X L, Wang L, et al.",
+    "summary_cn": "基于结构扰动思想进行疾病相关 piRNA 关联推断，提升关联预测可靠性。",
+    "keywords": ["piRNA", "结构扰动", "关联预测"],
+    "code_url": "https://github.com/kaizheng-academic",
+    "paper_url": "",
+    "data_url": "",
+    "bibtex": "@article{zheng2023sprda,\n  title={SPRDA: A Link Prediction Approach Based on Structural Perturbation},\n  author={Zheng, Kai and Zhang, X L and Wang, L and others},\n  journal={Briefings in Bioinformatics},\n  year={2023}\n}",
+    "status": "published"
+  }
+]
