@@ -1,26 +1,49 @@
-(function () {
-  function markActiveNav() {
-    var pathname = window.location.pathname;
-    document.querySelectorAll('.navbar-doc .nav-link').forEach(function (el) {
-      var href = el.getAttribute('href');
-      if (!href || href.startsWith('http')) return;
-      if (pathname === href) el.classList.add('active');
-    });
-  }
+$(function() {
+    $('html').toggleClass('no-js js');
 
-  function annotateExternalLinks() {
-    document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
-      if (!a.querySelector('.ext-icon')) {
-        var span = document.createElement('span');
-        span.className = 'ext-icon';
-        span.textContent = ' ↗';
-        a.appendChild(span);
-      }
-    });
-  }
+    // Update sidebar highlighting based on Scrollspy
+    $(window).on('activate.bs.scrollspy', function () {
+        const spyTarget = $('[data-spy="scroll"]').data('target');
+        const $activeSpy = $(spyTarget).find('.nav-link.active');
+        const $tree = $activeSpy.parentsUntil('.bs-docs-sidenav', 'li');
 
-  document.addEventListener('DOMContentLoaded', function () {
-    markActiveNav();
-    annotateExternalLinks();
-  });
-})();
+        $tree.find('> a').addClass('active');
+    });
+
+    // Toggleable mobile table of contents button
+    $('.toggle-toc').on('click', function () {
+        const $this = $(this);
+        const $toc = $("#mobileTOC");
+
+        $toc.toggle();
+        $this.attr('aria-expanded', $toc.is(':visible'));
+
+        const $btn = $this.find('[data-role="toggle"]');
+
+        if ($btn.text() === 'Hide') {
+            $btn.text('Show');
+        } else {
+            $btn.text('Hide');
+        }
+    });
+
+    // Make the triangular pattern in the header
+    if (uiColors) {
+        const $masthead = $('.site-masthead');
+
+        if ($masthead.length) {
+            const t = new Trianglify({
+                cellsize: 90,
+                noiseIntensity: 0,
+                x_gradient: [
+                    uiColors[0],
+                    uiColors[1],
+                ],
+            });
+            const pattern = t.generate(window.screen.width | $masthead.outerWidth(), $masthead.outerHeight() * 1.2);
+
+            const style = $('<style>.site-masthead { background-image: ' + pattern.dataUrl + '; }</style>');
+            $('html > head').append(style);
+        }
+    }
+});

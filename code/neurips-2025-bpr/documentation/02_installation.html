@@ -1,54 +1,87 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Installation</title>
-  <meta name="description" content="TRACE paper documentation" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
-  <link rel="stylesheet" href="../../assets/css/styles.css" />
+<meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installation</title>
+<meta name="description" content="">
+<link rel="canonical" href="https://kaizheng-academic.github.io/code/neurips-2025-bpr/documentation/02_installation.html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
+<link rel="stylesheet" href="/code/assets/css/styles.css"/>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light navbar-doc">
+<body class="layout-page" data-spy="scroll" data-target="#page-toc" data-offset="0">
+<header class="navbar navbar-expand-md navbar-custom" id="top">
   <div class="container">
     <a class="navbar-brand" href="/code/neurips-2025-bpr/">TRACE</a>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><a class="nav-link" href="/code/neurips-2025-bpr/documentation/01_About.html">About</a></li>
-      <li class="nav-item"><a class="nav-link" href="/code/neurips-2025-bpr/documentation/03_data.html">Data Input</a></li>
-      <li class="nav-item"><a class="nav-link" href="/code/neurips-2025-bpr/documentation/04_CARD_Example.html">Example Analysis</a></li>
-      <li class="nav-item"><a class="nav-link" href="/code/neurips-2025-bpr/documentation/05_Experiments.html">Experiments</a></li>
-      <li class="nav-item"><a class="nav-link active" href="/code/neurips-2025-bpr/documentation/02_installation.html">Installation</a></li>
-      <li class="nav-item"><a class="nav-link" target="_blank" rel="noreferrer" href="https://github.com/kaizheng-academic">GitHub</a></li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+    </button>
+    <nav class="navbar-collapse collapse" role="navigation" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item "><a class="nav-link" href="/code/neurips-2025-bpr/documentation/01_About.html">About</a></li>
+        <li class="nav-item "><a class="nav-link" href="/code/neurips-2025-bpr/documentation/03_data.html">Data Input</a></li>
+        <li class="nav-item "><a class="nav-link" href="/code/neurips-2025-bpr/documentation/04_CARD_Example.html">Example Analysis</a></li>
+        <li class="nav-item "><a class="nav-link" href="/code/neurips-2025-bpr/documentation/05_Experiments.html">Experiments</a></li>
+        <li class="nav-item active"><a class="nav-link" href="/code/neurips-2025-bpr/documentation/02_installation.html">Installation</a></li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item "><a class="nav-link" href="https://github.com/kaizheng-academic"><i class="fab fa-github fa-fw " aria-hidden="true"></i> GitHub</a></li>
+      </ul>
+    </nav>
   </div>
-</nav>
-<main class="doc-wrap">
-  <section class="doc-card">
-    <h1 class="doc-title">Installation</h1>
-    <div class="doc-section">
-      <pre><code>git clone https://github.com/kaizheng-academic
+</header>
+<div class="site-masthead mb-5 py-5 text-left"><div class="container"><h1 class="site-masthead__title mb-1">Installation</h1></div></div>
+<div class="container"><div class="row"><main class="col-md-9 layout-page__main"><section class="mobile-toc border mb-3 p-3 d-md-none"><div class="d-flex align-items-center"><h2 class="mb-0">Table of Contents</h2><button class="js-only ml-2 toggle-toc" aria-controls="mobileTOC" aria-label="Toggle table of contents" aria-expanded="true"><span aria-hidden="true" data-role="toggle">Hide</span></button></div><ul id="mobileTOC" class="js-toc mb-0 mt-2"><li><a href="#requirements">Requirements</a></li><li><a href="#installation">Installation</a></li><li><a href="#quickstart">Quickstart</a></li></ul></section><section class="scope-markdown"><h2 id="requirements">Requirements</h2>
+<ul><li>Linux/macOS</li><li>Python 3.9+</li><li>CUDA optional</li></ul>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre class="highlight"><code>git clone https://github.com/kaizheng-academic
 cd $(basename https://github.com/kaizheng-academic)
-# install dependencies according to project README</code></pre>
-      <p class="doc-muted">Use the repository README as source of truth for environment details.</p>
-    </div>
-  </section>
-</main>
-<footer class="site-footer border-top mt-4 py-4 text-center" role="contentinfo">
+# install dependencies according to README</code></pre></div>
+<h2 id="quickstart">Quickstart</h2>
+<p>Follow the repository README to reproduce results and run demos.</p></section></main><div class="col-md-3 d-none d-md-block"><aside id="page-toc" class="page-sidebar"><ul class="nav bs-docs-sidenav"><ul id="mobileTOC" class="js-toc mb-0 mt-2"><li><a href="#requirements">Requirements</a></li><li><a href="#installation">Installation</a></li><li><a href="#quickstart">Quickstart</a></li></ul></ul></aside></div></div></div>
+<footer class="site-footer border-top mt-5 py-5 text-center" role="contentinfo">
   <div class="container">
-    <div class="site-footer__social-links mb-2">
-      <a class="footer-link" href="https://github.com/kaizheng-academic" target="_blank" rel="noreferrer">GitHub</a>
-      <a class="footer-link" href="https://github.com/kaizheng-academic/issues" target="_blank" rel="noreferrer">Issues</a>
-      <a class="footer-link" href="https://www.gnu.org/licenses/licenses.en.html" target="_blank" rel="noreferrer">GNU License 3.0</a>
+    <div class="site-footer__social-links mb-4">
+      <a class="github-button" href="https://github.com/kaizheng-academic" data-size="large" data-show-count="true" aria-label="Star repo">Star</a>
+      <a class="github-button" href="https://github.com/kaizheng-academic/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue repo">Issue</a>
     </div>
-    <div class="site-footer__body">
-      <p class="footer-note">Theme style inspired by Jekyll Docs layout.</p>
+    <div class="site-footer__info">
+      <h2 class="h4 mb-1">TRACE</h2>
+      <p class="mb-0">Code released under GNU License 3.0.</p>
     </div>
-    <div class="disqus-placeholder" id="disqus_thread">
-      <p class="doc-muted">Comments powered by Disqus (placeholder).</p>
+    <div class="site-footer__summary mt-3">
+      <p class="mb-0">Documentation template by <a href="http://getbootstrap.com">Bootstrap team</a>, generated with <a href="https://github.com/allejo/jekyll-docs-theme">Jekyll Docs Theme</a></p>
     </div>
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 </footer>
-<script src="../../assets/js/docs.js"></script>
+<!-- Bootstrap Related Dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.2/trianglify.min.js"></script>
+<script>
+  let uiColors = [];
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    uiColors = ["#062a48", "#304e67"];
+  } else {
+    uiColors = ["#080331", "#673051"];
+  }
+</script>
+<script src="/code/assets/js/docs.js"></script>
 </body>
 </html>
