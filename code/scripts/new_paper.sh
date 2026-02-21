@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [[ $# -ne 4 ]]; then
-  echo "用法: ./CARD/scripts/new_paper.sh <slug> <title> <venue> <year>"
+  echo "用法: ./code/scripts/new_paper.sh <slug> <title> <venue> <year>"
   exit 1
 fi
 
@@ -21,7 +21,7 @@ root = pathlib.Path(sys.argv[1])
 slug, title, venue, year = sys.argv[2], sys.argv[3], sys.argv[4], int(sys.argv[5])
 json_path = root / "data" / "papers.json"
 template_path = root / "templates" / "paper.template.html"
-page_dir = root / "papers" / slug
+page_dir = root / slug
 page_path = page_dir / "index.html"
 
 papers = json.loads(json_path.read_text(encoding="utf-8"))

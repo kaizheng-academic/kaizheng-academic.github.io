@@ -27,7 +27,7 @@ for i, p in enumerate(papers, 1):
     if slug in seen:
         raise SystemExit(f"错误: slug 重复: {slug}")
     seen.add(slug)
-    page = root / "papers" / slug / "index.html"
+    page = root / slug / "index.html"
     if not page.exists():
         raise SystemExit(f"错误: 页面不存在: {page}")
 
@@ -36,7 +36,7 @@ published.sort(key=lambda x: (int(x["year"]), x["slug"]), reverse=True)
 
 cards = []
 for p in published:
-    cards.append(f'''<article class="paper-card">\n  <h3>{p["title"]}</h3>\n  <p class="paper-meta">{p["venue"]} · {p["year"]}</p>\n  <p class="paper-summary">{p["summary_cn"]}</p>\n  <div class="actions">\n    <a class="btn" href="./papers/{p["slug"]}/">进入页面</a>\n  </div>\n</article>''')
+    cards.append(f'''<article class="paper-card">\n  <h3>{p["title"]}</h3>\n  <p class="paper-meta">{p["venue"]} · {p["year"]}</p>\n  <p class="paper-summary">{p["summary_cn"]}</p>\n  <div class="actions">\n    <a class="btn" href="./{p["slug"]}/">进入页面</a>\n  </div>\n</article>''')
 
 html = f'''<!doctype html>
 <html lang="zh-CN">
@@ -44,7 +44,7 @@ html = f'''<!doctype html>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>郑凯 - 论文主页入口</title>
-  <meta name="description" content="CARD论文页面自动索引" />
+  <meta name="description" content="code论文页面自动索引" />
   <link rel="stylesheet" href="./assets/card.css" />
 </head>
 <body>
