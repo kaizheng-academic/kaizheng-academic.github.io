@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CARD Overview</title>
-  <meta name="description" content="Paper documentation site" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
   <link rel="stylesheet" href="/code/assets/css/styles.css" />
@@ -14,24 +13,28 @@
     <div class="container">
       <a class="navbar-brand" href="/code/">CARD</a>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" data-nav href="/code/documentation/01_About.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" data-nav href="/code/documentation/03_data.html">Data Input</a></li>
-        <li class="nav-item"><a class="nav-link" data-nav href="/code/documentation/04_CARD_Example.html">Example Analysis</a></li>
-        <li class="nav-item"><a class="nav-link" data-nav href="/code/documentation/05_Experiments.html">Experiments</a></li>
-        <li class="nav-item"><a class="nav-link" data-nav href="/code/documentation/02_installation.html">Installation</a></li>
-        <li class="nav-item"><a class="nav-link" target="_blank" rel="noreferrer" href="https://github.com/kaizheng-academic">GitHub</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/kaizheng-academic" target="_blank" rel="noreferrer">GitHub</a></li>
       </ul>
     </div>
   </nav>
   <main class="doc-wrap">
     <section class="doc-card">
       <h1 class="doc-title">CARD Overview</h1>
-      <p class="doc-muted">Structured paper documentation portal with independent article pages and reproducible resources.</p>
-      <div class="doc-hero">Overview Figure Placeholder</div>
+      <p class="doc-muted">Each article under <code>/code/&lt;slug&gt;/</code> is an independent CARD-style mini-site.</p>
       <div class="doc-section">
-        <h2>CARD Overview</h2>
-        <p>Each paper is hosted at an independent URL under <code>/code/&lt;slug&gt;/</code> while this documentation layer provides organized navigation and examples.</p>
-        <p>Example Analysis with CARD: <a href="/code/documentation/04_CARD_Example.html">here</a>.</p>
+        <article class="paper-item">
+      <h5><a href="/code/neurips-2025-bpr/">Graph-Theoretic Insights into Bayesian Personalized Ranking for Recommendation</a></h5>
+      <p class="paper-meta">NeurIPS · 2025</p>
+      <p>本工作从图论视角分析 Bayesian Personalized Ranking，为推荐排序模型提供理论解释与改进方向。</p>
+    </article><article class="paper-item">
+      <h5><a href="/code/lrtm-2025-tcbb/">LRTM: Left-Right Transition Matrices for Molecular Association Prediction</a></h5>
+      <p class="paper-meta">IEEE/ACM Transactions on Computational Biology and Bioinformatics · 2025</p>
+      <p>提出左右转移矩阵框架用于分子关联预测，兼顾性能与模型稳定性。</p>
+    </article><article class="paper-item">
+      <h5><a href="/code/sprda-2023-bib/">SPRDA: A Link Prediction Approach Based on Structural Perturbation</a></h5>
+      <p class="paper-meta">Briefings in Bioinformatics · 2023</p>
+      <p>基于结构扰动思想进行疾病相关 piRNA 关联推断，提升关联预测可靠性。</p>
+    </article>
       </div>
     </section>
   </main>
