@@ -11,8 +11,8 @@ author_profile: true
 .pub-year {
   margin: 1.4rem 0 0.8rem;
   padding-bottom: 4px;
-  border-bottom: 1px solid #e5e7eb;
-  color: #0f172a;
+  border-bottom: 1px solid var(--global-border-color);
+  color: var(--global-text-color);
   font-size: 1.15rem;
 }
 .pub-grid {
@@ -20,10 +20,11 @@ author_profile: true
   gap: 14px;
 }
 .pub-card {
-  border: 1px solid #e3e8ee;
-  border-radius: 10px;
+  border: 1px solid var(--global-border-color);
+  border-radius: 14px;
   padding: 14px 16px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 8px 18px rgba(20, 60, 118, 0.1);
 }
 .pub-title {
   margin: 0 0 6px;
@@ -31,13 +32,13 @@ author_profile: true
   line-height: 1.45;
 }
 .pub-meta {
-  color: #4b5563;
+  color: var(--global-text-color-light);
   font-size: 0.92rem;
   margin: 0 0 6px;
 }
 .pub-note {
   margin: 0 0 10px;
-  color: #1f2937;
+  color: var(--global-text-color);
   font-size: 0.94rem;
 }
 .pub-badges {
@@ -50,9 +51,9 @@ author_profile: true
   font-size: 0.78rem;
   padding: 2px 8px;
   border-radius: 999px;
-  background: #edf4ff;
-  color: #1d4ed8;
-  border: 1px solid #dbeafe;
+  background: rgba(54, 114, 204, 0.12);
+  color: var(--global-link-color);
+  border: 1px solid rgba(71, 127, 212, 0.35);
 }
 .pub-actions {
   display: flex;
@@ -63,21 +64,21 @@ author_profile: true
 .pub-btn {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #cfd9e6;
+  border: 1px solid var(--global-border-color);
   border-radius: 6px;
   font-size: 0.85rem;
   text-decoration: none;
-  color: #0f172a;
-  background: #f8fafc;
+  color: var(--global-text-color);
+  background: rgba(76, 132, 216, 0.1);
 }
 .pub-btn:hover {
   text-decoration: none;
-  background: #eef2f7;
+  background: rgba(76, 132, 216, 0.18);
 }
 .pub-btn--disabled {
-  color: #94a3b8;
-  background: #f1f5f9;
-  border-color: #e2e8f0;
+  color: var(--global-text-color-light);
+  background: rgba(126, 154, 199, 0.14);
+  border-color: rgba(122, 150, 193, 0.34);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -87,14 +88,24 @@ author_profile: true
 }
 .pub-figure-note {
   margin: 0.4rem 0 0.8rem;
-  color: #1f2937;
+  color: var(--global-text-color);
   font-size: 0.95rem;
 }
 .pub-figure img {
   max-width: 100%;
   height: auto;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--global-border-color);
   border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(24, 66, 130, 0.12);
+}
+html[data-theme="dark"] .pub-card {
+  background: rgba(13, 34, 63, 0.76);
+}
+html[data-theme="dark"] .pub-btn {
+  background: rgba(97, 148, 224, 0.16);
+}
+html[data-theme="dark"] .pub-btn:hover {
+  background: rgba(112, 163, 240, 0.25);
 }
 </style>
 

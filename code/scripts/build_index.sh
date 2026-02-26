@@ -94,9 +94,9 @@ def scripts_tail(asset_prefix: str):
 <script>
   let uiColors = [];
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {{
-    uiColors = ["#062a48", "#304e67"];
+    uiColors = ["#0a1f3f", "#12366c"];
   }} else {{
-    uiColors = ["#080331", "#673051"];
+    uiColors = ["#103b77", "#2a63ad"];
   }}
 </script>
 <script src="{asset_prefix}/assets/js/docs.js"></script>'''
