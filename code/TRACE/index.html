@@ -1,289 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-    <head>
-        <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
-
-
-
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>TRACE Overview</title>
-<meta name="description" content="Spatially Informed Cell Type Deconvolution for Spatial Transcriptomics">
-
-<link rel="canonical" href="https://kaizheng-academic.github.io/code/TRACE/">
-<link rel="alternate" type="application/rss+xml" title="" href="/code/TRACE/feed.xml">
-
-
-
-
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y="
-    crossorigin="anonymous"
-/>
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-    crossorigin="anonymous"
-/>
-<link
-    rel="stylesheet"
-    href="/code/TRACE/assets/css/styles.css"
-/>
-
-
-
-    </head>
-
-    
-    <body
-        class="layout-full"
-        data-spy="scroll"
-        data-target="#page-toc"
-        data-offset="0"
-    >
-        <header class="navbar navbar-expand-md navbar-custom" id="top">
-    <div class="container">
-        <a class="navbar-brand" href="/code/TRACE/">TRACE</a>
-
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-
-        <nav class="navbar-collapse collapse" role="navigation" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                        <li class="nav-item ">
-                            <a
-                                class="nav-link"
-                                href="/code/TRACE/documentation/01_About.html"
-                            >
+<meta content="Topology-preserving Robust Adaptive Contrastive Embedding under UaN bias" name="description"/>
+<link href="https://kaizheng-academic.github.io/code/TRACE/" rel="canonical"/>
+<link href="/code/TRACE/feed.xml" rel="alternate" title="" type="application/rss+xml"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet">
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet">
+<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet"/>
+</link></link></head>
+<body class="layout-full" data-offset="0" data-spy="scroll" data-target="#page-toc">
+<header class="navbar navbar-expand-md navbar-custom" id="top">
+<div class="container">
+<a class="navbar-brand" href="/code/TRACE/">TRACE</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<nav class="navbar-collapse collapse" id="navbarSupportedContent" role="navigation">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/01_About.html">
                                 About
                             </a>
-                        </li>
-                    
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                        <li class="nav-item ">
-                            <a
-                                class="nav-link"
-                                href="/code/TRACE/documentation/03_data.html"
-                            >
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/03_data.html">
                                 Data Input
                             </a>
-                        </li>
-                    
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                        <li class="nav-item ">
-                            <a
-                                class="nav-link"
-                                href="/code/TRACE/documentation/04_CARD_Example.html"
-                            >
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/04_CARD_Example.html">
                                 Example Analysis
                             </a>
-                        </li>
-                    
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                        <li class="nav-item ">
-                            <a
-                                class="nav-link"
-                                href="/code/TRACE/documentation/05_Experiments.html"
-                            >
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/05_Experiments.html">
                                 Experiments
                             </a>
-                        </li>
-                    
-                
-                    
-                    
-
-                    
-                    
-
-                    
-                        <li class="nav-item ">
-                            <a
-                                class="nav-link"
-                                href="/code/TRACE/documentation/02_installation.html"
-                            >
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/02_installation.html">
                                 Installation
                             </a>
-                        </li>
-                    
-                
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                
-                    <li class="nav-item ">
-                        <a
-                            class="nav-link"
-                            href="https://github.com/kaizheng-academic"
-                        >
-                            
-    <i
-        class="fab fa-github fa-fw "
-        aria-hidden="true"
-    ></i>
+</li>
+</ul>
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/kaizheng-academic">
+<i aria-hidden="true" class="fab fa-github fa-fw"></i>
 
 
                             GitHub
                         </a>
-                    </li>
-                
-            </ul>
-        </nav>
-    </div>
+</li>
+</ul>
+</nav>
+</div>
 </header>
-
-        
 <div class="site-masthead mb-5 py-5 text-center">
-    <div class="container">
-        <h1 class="site-masthead__title mb-1">TRACE Overview</h1>
-
-
-    <p class="site-masthead__description mb-0">
-        Spatially Informed Cell Type Deconvolution for Spatial Transcriptomics
-    </p>
-
-
-        
-    <div class="mt-4 mb-0">
-        
-            
-
-            <a
-    href="https://github.com/kaizheng-academic"
-    class="site-masthead__button mx-2 mb-2"
->
-    
-    <i
-        class="fas fa-download fa-fw mr-1"
-        aria-hidden="true"
-    ></i>
+<div class="container">
+<h1 class="site-masthead__title mb-1">TRACE Overview</h1>
+<p class="site-masthead__description mb-0">Topology-preserving Robust Adaptive Contrastive Embedding under UaN bias</p>
+<div class="mt-4 mb-0">
+<a class="site-masthead__button mx-2 mb-2" href="https://github.com/kaizheng-academic">
+<i aria-hidden="true" class="fas fa-download fa-fw mr-1"></i>
 
 
     Download
 </a>
-
-        
-
-        
-            <a
-    href="https://github.com/kaizheng-academic"
-    class="site-masthead__button mx-2 mb-2"
->
-    
-    <i
-        class="fab fa-github fa-fw mr-1"
-        aria-hidden="true"
-    ></i>
+<a class="site-masthead__button mx-2 mb-2" href="https://github.com/kaizheng-academic">
+<i aria-hidden="true" class="fab fa-github fa-fw mr-1"></i>
 
 
     View on GitHub
 </a>
-
-        
-    </div>
-
-    
-        <p class="site-masthead__version my-0">
+</div>
+<p class="site-masthead__version my-0">
             Latest release v1.0.0
         </p>
-    
-
-
-    </div>
 </div>
-
-
-        <div class="container">
-    <main class="layout-full__main scope-markdown">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h2 id="card-overview">TRACE Overview</h2>
-<p><img src="/code/TRACE/Overview1.jpg" alt="iDEA_pipeline" />
-CARD is a R package developed to perform spatially informed cell type deconvolution for Spatial Transcriptomics. Briefly, CARD is a reference-based deconvolution method that estimates cell type composition in spatial transcriptomics based on cell type specific expression information obtained from a reference scRNA-seq data. A key feature of CARD is its ability to accommodate spatial correlation in the cell type composition across tissue locations, enabling accurate and spatially informed cell type deconvolution as well as refined spatial map construction. CARD relies on an efficient optimization algorithm for constrained maximum likelihood estimation and is scalable to spatial transcriptomics with tens of thousands of spatial locations and tens of thousands of genes. CARD is implemented as an open-source R package, freely available at <a href="www.xzlab.org/software.html">www.xzlab.org/software.html</a>.</p>
-
-<h3 id="example-analysis-with-card-here">Example Analysis with TRACE: <a href="https://kaizheng-academic.github.io/code/TRACE/documentation/04_CARD_Example.html">here</a>.</h3>
-
-
-
-    </main>
-
-    
-    <div id="disqus_thread"></div>
-    <script>
+</div>
+<div class="container">
+<main class="layout-full__main scope-markdown">
+<h2 id="trace-overview">TRACE Overview</h2>
+<p><img alt="TRACE overview figure" src="/code/TRACE/documentation/figures/Fig1.png"/></p>
+<p><strong>Restoring the RNA-Ligand Interaction Manifold via Topology-Preserving Contrastive Learning under Epistemic Uncertainty.</strong></p>
+<p>High-throughput RNA-ligand screening is fundamentally affected by <em>Unknown-as-Negative (UaN)</em> bias, where unlabeled positives are treated as negatives. We show that naive ERM under UaN introduces decoy gradients and causes a topological rupture of the structure-activity manifold. TRACE addresses this failure mode with a theoretically grounded learning framework that restores manifold continuity and improves reliability.</p>
+<h3 id="contributions">Main Contributions</h3>
+<ul>
+<li><strong>Risk rectification:</strong> confidence-weighted importance sampling with uniform convergence under posterior drift.</li>
+<li><strong>Optimization stability:</strong> thermodynamic temperature regulation that bounds Jacobian factors and enforces local Lipschitz continuity.</li>
+<li><strong>Discriminative alignment:</strong> margin-aware contrastive regularization with exponential tail guarantees for misordering risk.</li>
+<li><strong>Empirical gains:</strong> 18.2% relative AUPRC improvement, 1.73× higher resilience under 50% noise, and over 83% ECE reduction.</li>
+</ul>
+<h3 id="example-entry">Example Analysis with TRACE: <a href="/code/TRACE/documentation/04_CARD_Example.html">here</a>.</h3>
+</main>
+<div id="disqus_thread"></div>
+<script>
         var disqus_config = function () {
             this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/';
             this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/';
@@ -295,134 +114,60 @@ CARD is a R package developed to perform spatially informed cell type deconvolut
             (d.head || d.body).appendChild(s);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </div>
-
-
-        <footer class="site-footer border-top mt-4 py-4 text-center" role="contentinfo">
-    
-
-    <div class="container">
-    
-        <div class="site-footer__social-links">
-            <ul class="list-inline mb-2">
-                
-                    <li class="list-inline-item">
-                        <iframe
-                            class="github-btn"
-                            src="https://ghbtns.com/github-btn.html?user=YMa-lab&amp;repo=CARD&amp;type=watch&amp;count=true"
-                            width="90"
-                            height="20"
-                            title="Star on GitHub"
-                        ></iframe>
-                    </li>
-                    <li class="list-inline-item">
-                        <iframe
-                            class="github-btn"
-                            src="https://ghbtns.com/github-btn.html?user=YMa-lab&amp;repo=CARD&amp;type=fork&amp;count=true"
-                            width="90"
-                            height="20"
-                            title="Fork on GitHub"
-                        ></iframe>
-                    </li>
-                
-                
-                
-                
-                
-            </ul>
-        </div>
-    
-
-    <div class="site-footer__body">
-        <div class="row align-items-center">
-            <div class="col-md-5">
-                
-                    <ul class="site-footer__links text-left list-inline mb-0">
-                        
-                            <li class="list-inline-item">
-                                <a
-                                    href="https://github.com/kaizheng-academic"
-                                    class="site-footer__link"
-                                >
-                                    
-    <i
-        class="fab fa-github fa-fw "
-        aria-hidden="true"
-    ></i>
-
-
-                                    <span>GitHub</span>
-                                </a>
-                            </li>
-                        
-                            <li class="list-inline-item">
-                                <a
-                                    href="https://github.com/kaizheng-academicissues?state=open"
-                                    class="site-footer__link"
-                                >
-                                    
-    <i
-        class="fas fa-bug fa-fw "
-        aria-hidden="true"
-    ></i>
-
-
-                                    <span>Issues</span>
-                                </a>
-                            </li>
-                        
-                    </ul>
-                
-            </div>
-
-            <div class="col-md-7 text-left text-md-right">
-                
-                    <div class="site-footer__summary">
-                        
-                        
-
-                        <p class="mb-0">Licensed under
+<footer class="site-footer border-top mt-4 py-4 text-center" role="contentinfo">
+<div class="container">
+<div class="site-footer__social-links">
+<ul class="list-inline mb-2">
+<li class="list-inline-item">
+<iframe class="github-btn" height="20" src="https://ghbtns.com/github-btn.html?user=kaizheng-academic&amp;repo=kaizheng-academic.github.io&amp;type=watch&amp;count=true" title="Star on GitHub" width="90"></iframe>
+</li>
+<li class="list-inline-item">
+<iframe class="github-btn" height="20" src="https://ghbtns.com/github-btn.html?user=kaizheng-academic&amp;repo=kaizheng-academic.github.io&amp;type=fork&amp;count=true" title="Fork on GitHub" width="90"></iframe>
+</li>
+</ul>
+</div>
+<div class="site-footer__body">
+<div class="row align-items-center">
+<div class="col-md-5">
+<ul class="site-footer__links text-left list-inline mb-0">
+<li class="list-inline-item">
+<a class="site-footer__link" href="https://github.com/kaizheng-academic">
+<i aria-hidden="true" class="fab fa-github fa-fw"></i>
+<span>GitHub</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a class="site-footer__link" href="https://github.com/kaizheng-academicissues?state=open">
+<i aria-hidden="true" class="fas fa-bug fa-fw"></i>
+<span>Issues</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-md-7 text-left text-md-right">
+<div class="site-footer__summary">
+<p class="mb-0">Licensed under
 
                                 <a href="https://www.gnu.org/licenses/licenses.en.html" target="_blank">GNU License 3.0</a></p>
-
-                        <p class="mb-0">
+<p class="mb-0">
                             Documentation template by <a href="http://getbootstrap.com">Bootstrap team</a>, generated with
                             <a href="https://github.com/allejo/jekyll-docs-theme">Jekyll Docs Theme</a>
-                        </p>
-                    </div>
-                
-            </div>
-        </div>
-    </div>
+</p>
 </div>
-
-    
-
+</div>
+</div>
+</div>
+</div>
 </footer>
-
-
-
 <!-- Bootstrap Related Dependencies -->
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js"
-    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"
-></script>
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"
-    integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" crossorigin="anonymous"
-></script>
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"
-></script>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.2/trianglify.min.js"></script>
-    <script>
+<script crossorigin="anonymous" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js"></script>
+<script crossorigin="anonymous" integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.2/trianglify.min.js"></script>
+<script>
         let uiColors = [];
 
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -437,15 +182,8 @@ CARD is a R package developed to perform spatially informed cell type deconvolut
                 ];
             }
     </script>
-
-
 <script src="/code/TRACE/assets/js/docs.js"></script>
-
-
-
-
-
-    <script>
+<script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -453,7 +191,5 @@ CARD is a R package developed to perform spatially informed cell type deconvolut
     ga('create', 'UA-123456-1', 'auto');
     ga('send', 'pageview');
 </script>
-
-
-    </body>
+</body>
 </html>
