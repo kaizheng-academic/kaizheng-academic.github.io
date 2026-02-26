@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>About</title>
-<meta content="Background and theoretical motivation of TRACE under UaN bias" name="description"/>
-<link href="https://kaizheng-academic.github.io/code/TRACE/documentation/01_About.html" rel="canonical"/>
+<title>Dataset</title>
+<meta content="Input/output definitions for TRACE under UaN setting" name="description"/>
+<link href="https://kaizheng-academic.github.io/code/TRACE/documentation/03_dataset.html" rel="canonical"/>
 <link href="/code/TRACE/feed.xml" rel="alternate" title="" type="application/rss+xml"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet">
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet">
-<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet"/>
-</link></link></head>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet"/>
+<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet">
+</link></head>
 <body class="layout-page" data-offset="0" data-spy="scroll" data-target="#page-toc">
 <header class="navbar navbar-expand-md navbar-custom" id="top">
 <div class="container">
@@ -24,30 +24,20 @@
 </button>
 <nav class="navbar-collapse collapse" id="navbarSupportedContent" role="navigation">
 <ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/01_background.html">Background</a>
+</li>
 <li class="nav-item active">
-<a class="nav-link" href="/code/TRACE/documentation/01_About.html">
-                                About
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/03_dataset.html">Dataset</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/03_data.html">
-                                Data Input
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/04_workflow.html">Workflow</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/04_CARD_Example.html">
-                                Example Analysis
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/05_results.html">Results</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/05_Experiments.html">
-                                Experiments
-                            </a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/02_installation.html">
-                                Installation
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/02_setup.html">Setup</a>
 </li>
 </ul>
 <ul class="navbar-nav ml-auto">
@@ -65,7 +55,8 @@
 </header>
 <div class="site-masthead mb-5 py-5 text-left">
 <div class="container">
-<h1 class="site-masthead__title mb-1">About</h1>
+<h1 class="site-masthead__title mb-1">Dataset</h1>
+<p class="site-masthead__description mb-0">Input/output definitions for TRACE under UaN setting</p>
 </div>
 </div>
 <div class="container">
@@ -78,26 +69,25 @@
 <span aria-hidden="true" data-role="toggle">Hide</span>
 </button>
 </div>
-<ul class="js-toc mb-0 mt-2" id="mobileTOC"><li><a href="#problem-setting">Problem Setting</a></li><li><a href="#erm-limitation">Limitation of Naive ERM</a></li><li><a href="#trace-pillars">TRACE Theoretical Pillars</a></li><li><a href="#guarantees">Guarantees and Impact</a></li></ul>
-</section>
+<ul class="js-toc mb-0 mt-2" id="mobileTOC"><li><a href="#inputs">Input Data</a></li><li><a href="#uan-definition">UaN Labeling Scenario</a></li><li><a href="#outputs">Output Artifacts</a></li></ul></section>
 <section class="scope-markdown">
-<h2 id="problem-setting">Problem Setting</h2>
-<p>RNA-targeted discovery is constrained by sparse supervision: in real screening pipelines, most RNA-ligand pairs are untested rather than truly negative. This creates the <strong>Unknown-as-Negative (UaN)</strong> bias, where unlabeled positives contaminate the negative set.</p>
-<h2 id="erm-limitation">Limitation of Naive ERM</h2>
-<p>Under UaN contamination, standard empirical risk minimization may optimize toward a biased surrogate objective. This bias can force representation collapse in local neighborhoods of active scaffolds and damage manifold continuity of structure-activity relationships.</p>
-<h2 id="trace-pillars">TRACE Theoretical Pillars</h2>
-<ol>
-<li><strong>Confidence-weighted importance sampling</strong> to rectify surrogate risk under posterior drift.</li>
-<li><strong>Thermodynamic temperature regulation</strong> to stabilize gradients and constrain local geometry.</li>
-<li><strong>Margin-aware contrastive regularization</strong> to separate true binders from decoys with explicit probabilistic guarantees.</li>
-</ol>
-<h2 id="guarantees">Guarantees and Impact</h2>
-<p>TRACE combines statistical guarantees with practical screening utility: stronger out-of-distribution generalization, improved robustness under heavy noise, and substantially better calibration for wet-lab prioritization.</p>
+<h2 id="inputs">Input Data</h2>
+<ul>
+<li><code>data/SMRTnet_main_repro.csv</code>: RNA-ligand interaction candidates and features.</li>
+<li><code>data/splits/smrt_5fold_seed7.csv</code>: fixed 5-fold partition with seed 7.</li>
+</ul>
+<h2 id="uan-definition">UaN Labeling Scenario</h2>
+<p>In TRACE, unlabeled pairs are not assumed to be true negatives with certainty. The training objective explicitly accounts for this epistemic uncertainty through confidence-aware weighting and contrastive constraints.</p>
+<h2 id="outputs">Output Artifacts</h2>
+<ul>
+<li>Prediction-level outputs: <code>raw/trace_e1_raw.csv</code>, <code>raw/trace_predictions.csv</code></li>
+<li>Summary-level outputs: <code>summary/trace_e1_summary.csv</code>, <code>summary/trace_e1_diff_vs_golden.csv</code></li>
+<li>Reliability and reproducibility checks: <code>checks/gate_report.json</code>, <code>checks/repro_check.json</code></li>
+</ul>
 </section>
 </main>
 <aside class="col-md-3 layout-page__sidebar d-none d-md-block hidden-print">
-<nav class="page-sidebar" id="page-toc">
-<ul class="list-unstyled pl-0"><li><a class="nav-link px-3 py-1" href="#problem-setting">Problem Setting</a></li><li><a class="nav-link px-3 py-1" href="#erm-limitation">Limitation of Naive ERM</a></li><li><a class="nav-link px-3 py-1" href="#trace-pillars">TRACE Theoretical Pillars</a></li><li><a class="nav-link px-3 py-1" href="#guarantees">Guarantees and Impact</a></li></ul>
+<nav class="page-sidebar" id="page-toc"><ul class="list-unstyled pl-0"><li><a class="nav-link px-3 py-1" href="#inputs">Input Data</a></li><li><a class="nav-link px-3 py-1" href="#uan-definition">UaN Labeling Scenario</a></li><li><a class="nav-link px-3 py-1" href="#outputs">Output Artifacts</a></li></ul>
 <a class="px-3 text-muted" href="#top">
 <small>Back to top</small>
 </a>
@@ -107,8 +97,8 @@
 <div id="disqus_thread"></div>
 <script>
         var disqus_config = function () {
-            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/01_About.html';
-            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/01_About.html';
+            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/03_dataset.html';
+            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/03_dataset.html';
         };
         (function() {
             var d = document, s = d.createElement('script');

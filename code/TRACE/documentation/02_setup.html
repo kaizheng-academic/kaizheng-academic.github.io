@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Example Analysis</title>
-<meta content="TRACE example pipeline and key analytical results" name="description"/>
-<link href="https://kaizheng-academic.github.io/code/TRACE/documentation/04_CARD_Example.html" rel="canonical"/>
+<title>Setup</title>
+<meta content="Reproducible setup and execution commands for TRACE E1" name="description"/>
+<link href="https://kaizheng-academic.github.io/code/TRACE/documentation/02_setup.html" rel="canonical"/>
 <link href="/code/TRACE/feed.xml" rel="alternate" title="" type="application/rss+xml"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet">
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet">
-<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet"/>
-</link></link></head>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet"/>
+<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet">
+</link></head>
 <body class="layout-page" data-offset="0" data-spy="scroll" data-target="#page-toc">
 <header class="navbar navbar-expand-md navbar-custom" id="top">
 <div class="container">
@@ -25,29 +25,19 @@
 <nav class="navbar-collapse collapse" id="navbarSupportedContent" role="navigation">
 <ul class="navbar-nav">
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/01_About.html">
-                                About
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/01_background.html">Background</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/03_data.html">
-                                Data Input
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/03_dataset.html">Dataset</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/04_workflow.html">Workflow</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/05_results.html">Results</a>
 </li>
 <li class="nav-item active">
-<a class="nav-link" href="/code/TRACE/documentation/04_CARD_Example.html">
-                                Example Analysis
-                            </a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/05_Experiments.html">
-                                Experiments
-                            </a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/02_installation.html">
-                                Installation
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/02_setup.html">Setup</a>
 </li>
 </ul>
 <ul class="navbar-nav ml-auto">
@@ -65,7 +55,7 @@
 </header>
 <div class="site-masthead mb-5 py-5 text-left">
 <div class="container">
-<h1 class="site-masthead__title mb-1">Example Analysis</h1>
+<h1 class="site-masthead__title mb-1">Setup</h1>
 </div>
 </div>
 <div class="container">
@@ -78,28 +68,29 @@
 <span aria-hidden="true" data-role="toggle">Hide</span>
 </button>
 </div>
-<ul class="js-toc mb-0 mt-2" id="mobileTOC"><li><a href="#workflow">Workflow</a></li><li><a href="#core-results">Core Results (Figure 2)</a></li><li><a href="#interpretation">Interpretation</a></li></ul>
+<ul class="js-toc mb-0 mt-2" id="mobileTOC"><li><a href="#environment">Environment Setup</a></li><li><a href="#run-trace">Run TRACE</a></li><li><a href="#repro-check">Reproducibility Check</a></li></ul>
 </section>
 <section class="scope-markdown">
-<h2 id="workflow">Workflow</h2>
-<p>TRACE example analysis follows a theory-aligned pipeline:</p>
-<ol>
-<li>Prepare fixed split data and initialize the dual-branch representation model.</li>
-<li>Apply confidence-weighted risk rectification under UaN contamination.</li>
-<li>Optimize with thermodynamic regulation and margin-aware contrastive loss.</li>
-<li>Evaluate ranking quality, robustness, and calibration jointly.</li>
-</ol>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/run_trace_e1.py --config configs/trace_e1.yaml --out outputs/run_demo_001
-python scripts/check_trace_repro.py --run outputs/run_demo_001 --golden golden/trace_e1_golden_summary.csv --tol 1e-12</code></pre></div></div>
-<h2 id="core-results">Core Results (Figure 2)</h2>
-<p><img alt="TRACE core results figure" src="/code/TRACE/documentation/figures/Fig2.png"/></p>
-<h2 id="interpretation">Interpretation</h2>
-<p>Figure 2 summarizes how TRACE preserves discriminative geometry under noisy supervision. The gain is not only in ranking metrics but also in geometric stability and confidence reliability.</p>
+<h2 id="environment">Environment Setup</h2>
+<p>Use the reproducible TRACE E1 package:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /Users/zack/Desktop/Code/trace-e1-demo-trace-only
+conda activate DRI
+pip install -r requirements.txt</code></pre></div></div>
+<h2 id="run-trace">Run TRACE</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/run_trace_e1.py \
+  --config configs/trace_e1.yaml \
+  --out outputs/run_demo_001</code></pre></div></div>
+<h2 id="repro-check">Reproducibility Check</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/check_trace_repro.py \
+  --run outputs/run_demo_001 \
+  --golden golden/trace_e1_golden_summary.csv \
+  --tol 1e-12</code></pre></div></div>
+<p>The run generates raw predictions, summary metrics, and reproducibility gate reports under a fixed split and seed.</p>
 </section>
 </main>
 <aside class="col-md-3 layout-page__sidebar d-none d-md-block hidden-print">
 <nav class="page-sidebar" id="page-toc">
-<ul class="list-unstyled pl-0"><li><a class="nav-link px-3 py-1" href="#workflow">Workflow</a></li><li><a class="nav-link px-3 py-1" href="#core-results">Core Results (Figure 2)</a></li><li><a class="nav-link px-3 py-1" href="#interpretation">Interpretation</a></li></ul>
+<ul class="list-unstyled pl-0"><li><a class="nav-link px-3 py-1" href="#environment">Environment Setup</a></li><li><a class="nav-link px-3 py-1" href="#run-trace">Run TRACE</a></li><li><a class="nav-link px-3 py-1" href="#repro-check">Reproducibility Check</a></li></ul>
 <a class="px-3 text-muted" href="#top">
 <small>Back to top</small>
 </a>
@@ -109,8 +100,8 @@ python scripts/check_trace_repro.py --run outputs/run_demo_001 --golden golden/t
 <div id="disqus_thread"></div>
 <script>
         var disqus_config = function () {
-            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/04_CARD_Example.html';
-            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/04_CARD_Example.html';
+            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/02_setup.html';
+            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/02_setup.html';
         };
         (function() {
             var d = document, s = d.createElement('script');

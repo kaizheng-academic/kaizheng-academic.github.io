@@ -5,14 +5,14 @@
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Experiments</title>
-<meta content="RQ1-RQ5 experimental summary of TRACE" name="description"/>
-<link href="https://kaizheng-academic.github.io/code/TRACE/documentation/05_Experiments.html" rel="canonical"/>
+<title>Workflow</title>
+<meta content="TRACE workflow, Figure 2, and static notebook results" name="description"/>
+<link href="https://kaizheng-academic.github.io/code/TRACE/documentation/04_workflow.html" rel="canonical"/>
 <link href="/code/TRACE/feed.xml" rel="alternate" title="" type="application/rss+xml"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet">
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet">
-<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet"/>
-</link></link></head>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" rel="stylesheet"/>
+<link href="/code/TRACE/assets/css/styles.css" rel="stylesheet">
+</link></head>
 <body class="layout-page" data-offset="0" data-spy="scroll" data-target="#page-toc">
 <header class="navbar navbar-expand-md navbar-custom" id="top">
 <div class="container">
@@ -25,29 +25,19 @@
 <nav class="navbar-collapse collapse" id="navbarSupportedContent" role="navigation">
 <ul class="navbar-nav">
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/01_About.html">
-                                About
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/01_background.html">Background</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/03_data.html">
-                                Data Input
-                            </a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/04_CARD_Example.html">
-                                Example Analysis
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/03_dataset.html">Dataset</a>
 </li>
 <li class="nav-item active">
-<a class="nav-link" href="/code/TRACE/documentation/05_Experiments.html">
-                                Experiments
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/04_workflow.html">Workflow</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="/code/TRACE/documentation/02_installation.html">
-                                Installation
-                            </a>
+<a class="nav-link" href="/code/TRACE/documentation/05_results.html">Results</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/code/TRACE/documentation/02_setup.html">Setup</a>
 </li>
 </ul>
 <ul class="navbar-nav ml-auto">
@@ -65,10 +55,7 @@
 </header>
 <div class="site-masthead mb-5 py-5 text-left">
 <div class="container">
-<h1 class="site-masthead__title mb-1">Experiments</h1>
-<p class="site-masthead__description mb-0">
-        Link to download the example dataset
-    </p>
+<h1 class="site-masthead__title mb-1">Workflow</h1>
 </div>
 </div>
 <div class="container">
@@ -81,28 +68,32 @@
 <span aria-hidden="true" data-role="toggle">Hide</span>
 </button>
 </div>
+<ul class="js-toc mb-0 mt-2" id="mobileTOC"><li><a href="#workflow">Workflow</a></li><li><a href="#core-results">Core Results (Figure 2)</a></li><li><a href="#notebook-results">Notebook Results</a></li><li><a href="#interpretation">Interpretation</a></li></ul>
 </section>
 <section class="scope-markdown">
-<h2 id="rq-summary">RQ1-RQ5 Summary</h2>
-<ul>
-<li><strong>RQ1 (OOD generalization):</strong> TRACE consistently improves ranking quality under distribution shift.</li>
-<li><strong>RQ2 (stability):</strong> temperature-regulated optimization reduces sensitivity to noisy pseudo-negatives.</li>
-<li><strong>RQ3 (screening utility):</strong> improved early retrieval quality supports practical hit prioritization.</li>
-<li><strong>RQ4 (biophysical coherence):</strong> predicted candidates align better with downstream docking-based validation.</li>
-<li><strong>RQ5 (calibration):</strong> probabilistic outputs are substantially better calibrated than baseline objectives.</li>
-</ul>
-<h2 id="figure3">Figure 3 Overview</h2>
-<p><img alt="TRACE experiment summary figure" src="/code/TRACE/documentation/figures/Fig3.png"/></p>
-<h2 id="takeaways">Key Takeaways</h2>
-<ul>
-<li>18.2% relative AUPRC improvement on the foundational benchmark.</li>
-<li>1.73× stronger resilience under 50% corruption stress.</li>
-<li>More than 83% ECE reduction, indicating much better reliability.</li>
-</ul>
+<h2 id="workflow">Workflow</h2>
+<p>TRACE example analysis follows a theory-aligned pipeline:</p>
+<ol>
+<li>Prepare fixed split data and initialize the dual-branch representation model.</li>
+<li>Apply confidence-weighted risk rectification under UaN contamination.</li>
+<li>Optimize with thermodynamic regulation and margin-aware contrastive loss.</li>
+<li>Evaluate ranking quality, robustness, and calibration jointly.</li>
+</ol>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/run_trace_e1.py --config configs/trace_e1.yaml --out outputs/run_demo_001
+python scripts/check_trace_repro.py --run outputs/run_demo_001 --golden golden/trace_e1_golden_summary.csv --tol 1e-12</code></pre></div></div>
+<h2 id="core-results">Core Results (Figure 2)</h2>
+<p><img alt="TRACE core results figure" src="/code/TRACE/documentation/figures/Fig2.png"/></p>
+<h2 id="notebook-results">Notebook Results</h2>
+<p>The static notebook below shows reproducibility commands and executed outputs (summary tables and quality gates).</p>
+<iframe src="/code/TRACE/documentation/notebooks/trace_e1_demo.html" style="width:100%;height:900px;border:1px solid #dee2e6;border-radius:4px;"></iframe>
+<p>If the notebook does not render in your browser, open it directly: <a href="/code/TRACE/documentation/notebooks/trace_e1_demo.html" rel="noreferrer" target="_blank">trace_e1_demo.html</a></p>
+<h2 id="interpretation">Interpretation</h2>
+<p>Figure 2 and notebook evidence jointly indicate that TRACE preserves discriminative geometry under noisy supervision while improving reliability-oriented metrics.</p>
 </section>
 </main>
 <aside class="col-md-3 layout-page__sidebar d-none d-md-block hidden-print">
 <nav class="page-sidebar" id="page-toc">
+<ul class="list-unstyled pl-0"><li><a class="nav-link px-3 py-1" href="#workflow">Workflow</a></li><li><a class="nav-link px-3 py-1" href="#core-results">Core Results (Figure 2)</a></li><li><a class="nav-link px-3 py-1" href="#notebook-results">Notebook Results</a></li><li><a class="nav-link px-3 py-1" href="#interpretation">Interpretation</a></li></ul>
 <a class="px-3 text-muted" href="#top">
 <small>Back to top</small>
 </a>
@@ -112,8 +103,8 @@
 <div id="disqus_thread"></div>
 <script>
         var disqus_config = function () {
-            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/05_Experiments.html';
-            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/05_Experiments.html';
+            this.page.url = 'https://kaizheng-academic.github.io/code/TRACE/documentation/04_workflow.html';
+            this.page.identifier = 'https://kaizheng-academic.github.io/code/TRACE/documentation/04_workflow.html';
         };
         (function() {
             var d = document, s = d.createElement('script');

@@ -1,0 +1,7 @@
+{
+  "tol": 0.005,
+  "pass": false,
+  "blocking_metric": "ECE_std",
+  "max_abs_diff": 0.00638707445850761,
+  "diff_csv": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/summary/trace_e1_diff_vs_golden.csv"
+}
