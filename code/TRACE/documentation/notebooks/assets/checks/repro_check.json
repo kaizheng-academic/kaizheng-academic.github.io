@@ -1,6 +1,6 @@
 {
-  "run_summary": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/summary/trace_e1_summary.csv",
-  "golden_summary": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/golden/trace_e1_golden_summary.csv",
+  "run_summary": "outputs/run_demo_001/summary/trace_e1_summary.csv",
+  "golden_summary": "golden/trace_e1_golden_summary.csv",
   "tol": 1e-12,
   "max_abs_delta": {
     "AUROC_mean": 0.0,

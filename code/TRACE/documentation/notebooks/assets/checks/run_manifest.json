@@ -1,8 +1,8 @@
 {
   "seed": 7,
   "n_splits": 5,
-  "data_path": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/data/SMRTnet_main_repro.csv",
-  "split_path": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/data/splits/smrt_5fold_seed7.csv",
+  "data_path": "data/SMRTnet_main_repro.csv",
+  "split_path": "data/splits/smrt_5fold_seed7.csv",
   "data_sha256": "028749e4a1454c470ceffdc83a90a5dd48999ce5560eb902e9868e6cf2c278a9",
   "split_sha256": "bca0f110ac5850a279ea89373599f8bd9e5971984fa680cec5f55440c9744f3a",
   "config_sha256": "d17a72fe7cbb9b2446aa5ff6c5debf65046d192479784434c35ba31e3316fc6a",
@@ -11,9 +11,9 @@
   "logging": {
     "mode": "quiet",
     "rdkit_suppress": true,
-    "logs_dir": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/logs",
-    "metrics_log": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/logs/run_trace_e1_metrics.log",
-    "warnings_log": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/logs/run_trace_e1_warnings.log"
+    "logs_dir": "outputs/run_demo_001/logs",
+    "metrics_log": "outputs/run_demo_001/logs/run_trace_e1_metrics.log",
+    "warnings_log": "outputs/run_demo_001/logs/run_trace_e1_warnings.log"
   },
   "trace_mechanism": {
     "encoder_type_drug": "mlp",
@@ -33,10 +33,10 @@
     "all_within_tol": false
   },
   "outputs": {
-    "raw": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/raw/trace_e1_raw.csv",
-    "summary": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/summary/trace_e1_summary.csv",
-    "predictions": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/raw/trace_predictions.csv",
-    "diff_vs_golden": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/summary/trace_e1_diff_vs_golden.csv",
-    "gate_report": "/Users/zack/Desktop/Code/trace-e1-demo-trace-only/outputs/run_demo_001/checks/gate_report.json"
+    "raw": "outputs/run_demo_001/raw/trace_e1_raw.csv",
+    "summary": "outputs/run_demo_001/summary/trace_e1_summary.csv",
+    "predictions": "outputs/run_demo_001/raw/trace_predictions.csv",
+    "diff_vs_golden": "outputs/run_demo_001/summary/trace_e1_diff_vs_golden.csv",
+    "gate_report": "outputs/run_demo_001/checks/gate_report.json"
   }
 }
